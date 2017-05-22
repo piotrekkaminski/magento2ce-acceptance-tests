@@ -1,5 +1,7 @@
 {
-    "name": "tooling-demo",
+    "name": "magento/acceptance-test-ce",
+    "type": "library",
+    "description": "Magento 2 (Community Edition) Acceptance Tests",
     "require": {
 	    "php": ">=5.4.0",
         "codeception/codeception": "~2.2",
@@ -16,7 +18,6 @@
             "Yandex": "vendor/allure-framework/allure-codeception/src/"
         },
         "psr-4": {
-            "Magento\\Xxyyzz\\": "src/Magento/Xxyyzz",
             "Magento\\Xxyyzz\\Acceptance\\": "tests/acceptance/Magento/Xxyyzz/Acceptance"
         }
     }
