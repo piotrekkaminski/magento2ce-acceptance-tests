@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c61162fb7679a6529db55bad94e4a4ed",
-    "content-hash": "e16d91d4da3908da1cd280310d0658cc",
+    "hash": "c41ff1146620f4de49480247d2a3e22b",
+    "content-hash": "cabccecf1146f8d8c635bd893f12575f",
     "packages": [
         {
             "name": "allure-framework/allure-codeception",
@@ -1352,6 +1352,53 @@
                 "service"
             ],
             "time": "2017-05-10 09:20:27"
+        },
+        {
+            "name": "magento/acceptance-test-framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magento-pangolin/acceptance-test-framework.git",
+                "reference": "5af5e1348f4d688f76220214bd01eb998ad1ee48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magento-pangolin/acceptance-test-framework/zipball/5af5e1348f4d688f76220214bd01eb998ad1ee48",
+                "reference": "5af5e1348f4d688f76220214bd01eb998ad1ee48",
+                "shasum": ""
+            },
+            "require": {
+                "allure-framework/allure-codeception": "dev-master",
+                "codeception/codeception": "~2.2",
+                "consolidation/robo": "^1.0.0",
+                "flow/jsonpath": ">0.2",
+                "fzaninotto/faker": "^1.6",
+                "php": ">=5.4.0",
+                "symfony/filesystem": "~2.6",
+                "symfony/finder": "~2.6",
+                "vlucas/phpdotenv": "~2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Yandex": "vendor/allure-framework/allure-codeception/src/"
+                },
+                "psr-4": {
+                    "Magento\\Xxyyzz\\": "src/Magento/Xxyyzz"
+                }
+            },
+            "description": "Magento Acceptance Testing Framework",
+            "keywords": [
+                "acceptance",
+                "automation",
+                "magento",
+                "testing"
+            ],
+            "support": {
+                "source": "https://github.com/magento-pangolin/acceptance-test-framework/tree/master",
+                "issues": "https://github.com/magento-pangolin/acceptance-test-framework/issues"
+            },
+            "time": "2017-05-22 20:48:02"
         },
         {
             "name": "moontoast/math",
@@ -3818,7 +3865,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "allure-framework/allure-codeception": 20
+        "allure-framework/allure-codeception": 20,
+        "magento/acceptance-test-framework": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

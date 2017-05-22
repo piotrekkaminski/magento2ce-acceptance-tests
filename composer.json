@@ -2,6 +2,12 @@
     "name": "magento/acceptance-test-ce",
     "type": "library",
     "description": "Magento 2 (Community Edition) Acceptance Tests",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/magento-pangolin/acceptance-test-framework"
+        }
+    ],
     "require": {
 	    "php": ">=5.4.0",
         "codeception/codeception": "~2.2",
@@ -11,13 +17,15 @@
         "allure-framework/allure-codeception": "dev-master",
         "flow/jsonpath": ">0.2",
         "vlucas/phpdotenv": "~2.4",
-        "fzaninotto/faker": "^1.6"
+        "fzaninotto/faker": "^1.6",
+        "magento/acceptance-test-framework": "dev-master"
     },
     "autoload": {
         "psr-0": {
             "Yandex": "vendor/allure-framework/allure-codeception/src/"
         },
         "psr-4": {
+            "Magento\\Xxyyzz\\": "vendor/magento/acceptance-test-framework/src/Magento/Xxyyzz",
             "Magento\\Xxyyzz\\Acceptance\\": "tests/acceptance/Magento/Xxyyzz/Acceptance"
         }
     }

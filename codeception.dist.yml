@@ -3,8 +3,8 @@ paths:
     tests: tests
     log: tests/_output
     data: tests/_data
-    support: src/Magento/Xxyyzz
-    envs: etc/_envs
+    support: vendor/magento/acceptance-test-framework/src/Magento/Xxyyzz
+    envs: vendor/magento/acceptance-test-framework/etc/_envs
 settings:
     bootstrap: _bootstrap.php
     colors: true
