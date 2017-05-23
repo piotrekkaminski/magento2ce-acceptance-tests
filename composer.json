@@ -9,16 +9,11 @@
         }
     ],
     "require": {
-	    "php": ">=5.4.0",
-        "codeception/codeception": "~2.2",
-        "symfony/filesystem": "~2.6",
-        "symfony/finder": "~2.6",
-        "consolidation/robo": "^1.0.0",
+	    "php": ">=5.4.0 <8.0",
+        "magento/acceptance-test-framework": "dev-master",
         "allure-framework/allure-codeception": "dev-master",
-        "flow/jsonpath": ">0.2",
-        "vlucas/phpdotenv": "~2.4",
-        "fzaninotto/faker": "^1.6",
-        "magento/acceptance-test-framework": "dev-master"
+        "consolidation/robo": "^1.0.0",
+        "vlucas/phpdotenv": "~2.4"
     },
     "autoload": {
         "psr-0": {
