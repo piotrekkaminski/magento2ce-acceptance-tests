@@ -1,11 +1,11 @@
 {
-    "name": "magento/acceptance-test-ce",
+    "name": "magento/magento2ce-acceptance-tests",
     "type": "library",
     "description": "Magento 2 (Community Edition) Acceptance Tests",
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/magento-pangolin/acceptance-test-framework"
+            "url": "https://github.com/magento-pangolin/magento2-acceptance-test-framework"
         }
     ],
     "require": {
