@@ -10,7 +10,7 @@
     ],
     "require": {
 	    "php": ">=5.4.0 <8.0",
-        "magento/acceptance-test-framework": "dev-master",
+        "magento/magento2-acceptance-test-framework": "dev-master",
         "allure-framework/allure-codeception": "dev-master",
         "consolidation/robo": "^1.0.0",
         "vlucas/phpdotenv": "~2.4"
