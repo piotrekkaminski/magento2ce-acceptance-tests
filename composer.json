@@ -1,18 +1,27 @@
 {
-    "name": "magento/acceptance-test-framework",
+    "name": "magento/magento2ce-acceptance-tests",
     "type": "library",
-    "description": "Magento Acceptance Testing Framework",
-    "keywords": ["magento", "automation", "acceptance", "testing"],
+    "description": "Magento 2 (Community Edition) Acceptance Tests",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/magento-pangolin/magento2-acceptance-test-framework"
+        }
+    ],
     "require": {
-        "php": ">=7.0",
-        "codeception/codeception": "~2.2|2.3",
-        "flow/jsonpath": ">0.2",
-        "fzaninotto/faker": "^1.6"
+	    "php": ">=5.4.0 <8.0",
+        "magento/acceptance-test-framework": "dev-master",
+        "allure-framework/allure-codeception": "dev-master",
+        "consolidation/robo": "^1.0.0",
+        "vlucas/phpdotenv": "~2.4"
     },
     "autoload": {
+        "psr-0": {
+            "Yandex": "vendor/allure-framework/allure-codeception/src/"
+        },
         "psr-4": {
-            "Magento\\Xxyyzz\\": "src/Magento/Xxyyzz",
-            "Magento\\TestFramework\\": "lib/Magento/TestFramework"
+            "Magento\\AcceptanceTestFramework\\": "vendor/magento/acceptance-test-framework/src/Magento/AcceptanceTestFramework",
+            "Magento\\AcceptanceTest\\": "tests/acceptance/Magento/AcceptanceTest"
         }
     }
 }
