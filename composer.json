@@ -23,5 +23,7 @@
             "Magento\\Xxyyzz\\": "vendor/magento/acceptance-test-framework/src/Magento/Xxyyzz",
             "Magento\\Xxyyzz\\Acceptance\\": "tests/acceptance/Magento/Xxyyzz/Acceptance"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
