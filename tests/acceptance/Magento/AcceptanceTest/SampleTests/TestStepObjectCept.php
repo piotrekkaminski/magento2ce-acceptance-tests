@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\SampleTests;
+namespace Magento\AcceptanceTest\SampleTests;
 
 // @group skip
 $I = new \Magento\AcceptanceTestFramework\Step\Backend\AdminStep(\Codeception\Scenario::$scenario);

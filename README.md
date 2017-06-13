@@ -51,7 +51,12 @@
     ```
     vendor/bin/codecept build
     ```
-
+* Generate page objects:
+    ```
+    vendor/bin/robo generate:page-objects
+    ```
+    Page objects will be generated in **generated** folder under project root.
+    
 * **You will need to install Allure's CLI tool to generate the reports, please visit this page for instructions**: http://wiki.qatools.ru/display/AL/Allure+Commandline.
 
 * Next you will need to start a Selenium server so we can run the tests (This will vary based on your local setup).

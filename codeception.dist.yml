@@ -3,7 +3,7 @@ paths:
     tests: tests
     log: tests/_output
     data: tests/_data
-    support: vendor/magento/acceptance-test-framework/src/Magento/AcceptanceTestFramework
+    support: vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework
     envs: vendor/magento/acceptance-test-framework/etc/_envs
 settings:
     bootstrap: _bootstrap.php

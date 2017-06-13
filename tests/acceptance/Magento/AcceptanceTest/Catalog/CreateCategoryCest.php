@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Catalog;
+namespace Magento\AcceptanceTest\Catalog;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 use Magento\AcceptanceTestFramework\Page\Catalog\AdminCategoryPage;

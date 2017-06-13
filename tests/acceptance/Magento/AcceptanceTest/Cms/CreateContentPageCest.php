@@ -1,10 +1,10 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Cms;
+namespace Magento\AcceptanceTest\Cms;
 
-use Magento\AcceptanceTestFramework\Page\Cms\StorefrontCmsPage;
-use Magento\AcceptanceTestFramework\Page\Cms\AdminCmsGrid;
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
-use Magento\AcceptanceTestFramework\Page\Cms\AdminCmsPage;
+use Magento\AcceptanceTest\Cms\Page\StorefrontCmsPage;
+use Magento\AcceptanceTest\Cms\Page\AdminCmsGrid;
+use Magento\AcceptanceTest\Cms\Page\AdminCmsPage;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Title;
@@ -38,7 +38,7 @@ class CreateContentPageCest
         $I->am('an Admin');
         $I->loginAsAdmin();
         $I->goToTheAdminPagesGrid();
-        
+
         $adminCmsGrid->clickOnAddPageButton();
     }
 
@@ -65,7 +65,7 @@ class CreateContentPageCest
     public function verifyThatEachFieldOnTheContentPageWorks(
         AdminStep $I,
         AdminCmsPage $adminCmsPage
-    ) 
+    )
     {
         $I->wantTo('verify that I can use all of the fields on the page.');
         $pageData = $I->getContentPage();
@@ -164,7 +164,7 @@ class CreateContentPageCest
 
         $adminCmsGrid->performSearchByKeyword($pageData['urlKey']);
         $adminCmsGrid->clickOnActionEditFor($pageData['urlKey']);
-        
+
         $adminCmsPage->clickOnPageContent();
         $adminCmsPage->clickOnPageSearchEngineOptimisation();
 

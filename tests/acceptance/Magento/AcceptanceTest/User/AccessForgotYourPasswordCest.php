@@ -1,8 +1,8 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\User;
+namespace Magento\AcceptanceTest\User;
 
-use Magento\AcceptanceTestFramework\Page\Backend\AdminLogin;
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
+use Magento\AcceptanceTest\Backend\Page\AdminLogin;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Title;

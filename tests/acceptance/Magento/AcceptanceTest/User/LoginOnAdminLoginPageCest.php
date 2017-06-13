@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\User;
+namespace Magento\AcceptanceTest\User;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 use Yandex\Allure\Adapter\Annotation\Features;
@@ -13,7 +13,7 @@ use Yandex\Allure\Adapter\Annotation\TestCaseId;
 
 /**
  * Class LoginOnAdminLoginPageCest
- * 
+ *
  * Allure annotations
  * @Features({"Admin Login"})
  * @Stories({"Logging In"})
@@ -42,7 +42,7 @@ class LoginOnAdminLoginPageCest
     {
         $I->am('an Admin');
         $I->wantTo('verify that I can login via the Admin Login page');
-        
+
         $I->loginAsAdmin();
         $I->shouldBeOnTheAdminDashboardPage();
     }

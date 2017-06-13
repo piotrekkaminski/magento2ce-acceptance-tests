@@ -9,19 +9,23 @@
         }
     ],
     "require": {
-	    "php": ">=5.4.0 <8.0",
-        "magento/acceptance-test-framework": "dev-master",
+	    "php": "~7.0",
+        "magento/magento2-acceptance-test-framework": "dev-MQE-112-page-object-generator",
         "allure-framework/allure-codeception": "dev-master",
-        "consolidation/robo": "^1.0.0",
-        "vlucas/phpdotenv": "~2.4"
+        "consolidation/robo": "^1.0.0"
     },
     "autoload": {
         "psr-0": {
             "Yandex": "vendor/allure-framework/allure-codeception/src/"
         },
         "psr-4": {
-            "Magento\\AcceptanceTestFramework\\": "vendor/magento/acceptance-test-framework/src/Magento/AcceptanceTestFramework",
-            "Magento\\AcceptanceTest\\": "tests/acceptance/Magento/AcceptanceTest"
+            "Magento\\AcceptanceTestFramework\\": [
+                "vendor/magento/acceptance-test-framework/src/Magento/AcceptanceTestFramework"
+            ],
+            "Magento\\AcceptanceTest\\": [
+                "tests/acceptance/Magento/AcceptanceTest",
+                "generated/Magento/AcceptanceTest"
+            ]
         }
     }
 }

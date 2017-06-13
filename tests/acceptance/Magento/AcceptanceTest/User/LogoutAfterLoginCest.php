@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\User;
+namespace Magento\AcceptanceTest\User;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 use Yandex\Allure\Adapter\Annotation\Features;
@@ -41,7 +41,7 @@ class LogoutAfterLoginCest
     {
         $I->am('an Admin');
         $I->wantTo('logout of the Admin area and land on the Login page');
-        
+
         $I->loginAsAdmin();
         $I->goToTheAdminLogoutPage();
         $I->shouldBeOnTheAdminLoginPage();

@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Backend;
+namespace Magento\AcceptanceTest\Backend;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 use Yandex\Allure\Adapter\Annotation\Features;
@@ -291,7 +291,7 @@ class AccessAdminPagesDirectlyCest
 
         $I->goToTheAdminAddSimpleProductPage();
         $I->shouldBeOnTheAdminAddSimpleProductPage();
-        
+
         $I->goToTheAdminAddConfigurableProductPage();
         $I->shouldBeOnTheAdminAddConfigurableProductPage();
 

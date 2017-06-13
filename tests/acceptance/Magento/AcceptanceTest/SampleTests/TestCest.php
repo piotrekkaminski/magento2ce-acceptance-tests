@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\SampleTests;
+namespace Magento\AcceptanceTest\SampleTests;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 
@@ -13,7 +13,7 @@ class TestCest
         $I->goToTheAdminLoginPage();
         $I->loginAsAdmin();
     }
-    
+
     /**
      * @env phantomjs
      * @env chrome

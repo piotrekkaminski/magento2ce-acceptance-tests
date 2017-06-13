@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\User;
+namespace Magento\AcceptanceTest\User;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 use Yandex\Allure\Adapter\Annotation\Features;
@@ -41,7 +41,7 @@ class CannotAccessAdminAfterLoggingOutCest
     {
         $I->am('an Admin');
         $I->wantTo('make sure you cannot access Admin pages after logging out');
-        
+
         $I->loginAsAdmin();
         $I->goToTheAdminLogoutPage();
 

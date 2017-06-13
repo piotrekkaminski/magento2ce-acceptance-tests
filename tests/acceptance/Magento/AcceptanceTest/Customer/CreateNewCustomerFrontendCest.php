@@ -1,9 +1,9 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Customer;
+namespace Magento\AcceptanceTest\Customer;
 
 use Magento\AcceptanceTestFramework\AcceptanceTester;
-use Magento\AcceptanceTestFramework\Page\Customer\StorefrontCustomerAccountCreatePage;
-use Magento\AcceptanceTestFramework\Page\Customer\StorefrontCustomerAccountDashboardPage;
+use Magento\AcceptanceTest\Customer\Page\StorefrontCustomerAccountCreatePage;
+use Magento\AcceptanceTest\Customer\Page\StorefrontCustomerAccountDashboardPage;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Title;

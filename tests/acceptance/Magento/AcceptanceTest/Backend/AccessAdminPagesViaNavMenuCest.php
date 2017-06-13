@@ -1,8 +1,8 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Backend;
+namespace Magento\AcceptanceTest\Backend;
 
-use Magento\AcceptanceTestFramework\Page\Backend\AdminSideNavigation as SideNav;
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
+use Magento\AcceptanceTest\Backend\Page\AdminSideNavigation as SideNav;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Title;
@@ -14,7 +14,7 @@ use Yandex\Allure\Adapter\Annotation\TestCaseId;
 
 /**
  * Class AccessAdminPagesViaNavMenuCest
- * 
+ *
  * Allure annotations
  * @Features({"Admin Nav Menu"})
  * @Stories({"Access Admin pages via the Admin Nav Menu"})

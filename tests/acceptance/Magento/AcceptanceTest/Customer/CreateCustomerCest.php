@@ -1,9 +1,9 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Customer;
+namespace Magento\AcceptanceTest\Customer;
 
-use Magento\AcceptanceTestFramework\Page\Customer\AdminCustomerPage;
-use Magento\AcceptanceTestFramework\Page\Customer\AdminCustomerGrid;
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
+use Magento\AcceptanceTest\Customer\Page\AdminCustomerPage;
+use Magento\AcceptanceTest\Customer\Page\AdminCustomerGrid;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Title;
@@ -117,7 +117,7 @@ class CreateCustomerCest
 
         $adminCustomerPage->clickOnAddNewAddressDefaultBillingAddress();
         $adminCustomerPage->clickOnAddNewAddressDefaultShippingAddress();
-        
+
         $adminCustomerPage->enterAddAddressPrefix($customerData['prefix']);
         $adminCustomerPage->enterAddAddressFirstName($customerData['firstname']);
         $adminCustomerPage->enterAddAddressMiddleName($customerData['middlename']);
@@ -222,7 +222,7 @@ class CreateCustomerCest
     {
         $I->wantTo('verify basic Customer creation in admin');
         $customerData = $I->getCustomerData();
-        
+
         $adminCustomerPage->clickOnAddressesLink();
         $adminCustomerPage->clickOnAddNewAddressButton();
 

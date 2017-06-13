@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\SampleTests;
+namespace Magento\AcceptanceTest\SampleTests;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 use \Codeception\Scenario;

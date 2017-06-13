@@ -1,5 +1,5 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\User;
+namespace Magento\AcceptanceTest\User;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
 use Yandex\Allure\Adapter\Annotation\Features;

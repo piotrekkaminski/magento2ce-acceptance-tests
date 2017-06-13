@@ -1,11 +1,11 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Catalog;
+namespace Magento\AcceptanceTest\Catalog;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
-use Magento\AcceptanceTestFramework\Page\Catalog\AdminProductGridPage;
-use Magento\AcceptanceTestFramework\Page\Catalog\AdminProductPage;
-use Magento\AcceptanceTestFramework\Page\Catalog\StorefrontCategoryPage;
-use Magento\AcceptanceTestFramework\Page\Catalog\StorefrontProductPage;
+use Magento\AcceptanceTest\Catalog\Page\AdminProductGridPage;
+use Magento\AcceptanceTest\Catalog\Page\AdminProductPage;
+use Magento\AcceptanceTest\Catalog\Page\StorefrontCategoryPage;
+use Magento\AcceptanceTest\Catalog\Page\StorefrontProductPage;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Title;
@@ -84,8 +84,8 @@ class CreateSimpleProductCest
      */
     public function createSimpleProductTest(
         AdminStep $I,
-        AdminProductGridPage $adminProductGridPage,
         AdminProductPage $adminProductPage,
+        AdminProductGridPage $adminProductGridPage,
         StorefrontCategoryPage $storefrontCategoryPage,
         StorefrontProductPage $storefrontProductPage
     ) {

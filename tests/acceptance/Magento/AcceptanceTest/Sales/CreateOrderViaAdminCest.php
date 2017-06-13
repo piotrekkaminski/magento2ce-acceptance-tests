@@ -1,13 +1,13 @@
 <?php
-namespace Magento\AcceptanceTest\Acceptance\Sales;
+namespace Magento\AcceptanceTest\Sales;
 
-use Magento\AcceptanceTestFramework\Page\Catalog\AdminCategoryPage;
-use Magento\AcceptanceTestFramework\Page\Catalog\AdminProductPage;
-use Magento\AcceptanceTestFramework\Page\Customer\AdminCustomerPage;
-use Magento\AcceptanceTestFramework\Page\Sales\AdminOrderAddPage;
-use Magento\AcceptanceTestFramework\Page\Sales\AdminOrderDetailsPage;
-use Magento\AcceptanceTestFramework\Page\Sales\AdminOrderGrid;
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
+use Magento\AcceptanceTest\Catalog\Page\AdminCategoryPage;
+use Magento\AcceptanceTest\Catalog\Page\AdminProductPage;
+use Magento\AcceptanceTest\Customer\Page\AdminCustomerPage;
+use Magento\AcceptanceTest\Sales\Page\AdminOrderAddPage;
+use Magento\AcceptanceTest\Sales\Page\AdminOrderDetailsPage;
+use Magento\AcceptanceTest\Sales\Page\AdminOrderGrid;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Title;
@@ -125,7 +125,7 @@ class CreateOrderViaAdminCest
 
         $adminOrderDetailsPage->verifyShippingMethodFixedRate();
         $adminOrderDetailsPage->verifyShippingHandlingPrice('$0.00');
-        
+
         // TODO: Add verification for Product Details in the Order
         $adminOrderDetailsPage->verifyItemsOrderedFor($productDetails);
 
@@ -134,5 +134,5 @@ class CreateOrderViaAdminCest
 
         $adminOrderDetailsPage->verifySubTotalPrice($productDetails['price']);
         $adminOrderDetailsPage->verifyShippingHandlingPrice('$0.00');
-   }
+    }
 }
