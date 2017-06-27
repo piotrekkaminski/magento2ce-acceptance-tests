@@ -11,7 +11,7 @@ modules:
         - \Magento\Xxyyzz\Module\MagentoWebDriver
         - \Magento\Xxyyzz\Helper\Acceptance
         - \Magento\Xxyyzz\Helper\MagentoFakerData
-        - \Magento\Xxyyzz\Module\MagentoRESTDriver:
+        - \Magento\Xxyyzz\Module\MagentoRestDriver:
             url: "%MAGENTO_BASE_URL%/rest/default/V1/"
             username: "%MAGENTO_ADMIN_USERNAME%"
             password: "%MAGENTO_ADMIN_PASSWORD%"
