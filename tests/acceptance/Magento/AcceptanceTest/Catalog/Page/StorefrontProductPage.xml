@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/pageObject.xsd">
+    <page name="CatalogProductView" area="Storefront" mca="catalog/product/view" module="Magento_Catalog">
+        <block name="viewBlock" class="Magento\AcceptanceTest\Catalog\Page\Storefront\Block\Product\View" locator="#maincontent" />
+        <block name="additionalInformationBlock" class="Magento\AcceptanceTest\Catalog\Page\Storefront\Block\Product\Additional" locator="#additional" />
+        <block name="customOptionsBlock" class="Magento\AcceptanceTest\Catalog\Page\Storefront\Block\Product\View\CustomOptions" locator="#product-options-wrapper" />
+        <block name="relatedProductBlock" class="Magento\AcceptanceTest\Catalog\Page\Storefront\Block\Product\ProductList\Related" locator=".block.related" />
+        <block name="upsellBlock" class="Magento\AcceptanceTest\Catalog\Page\Storefront\Block\Product\ProductList\Upsell" locator=".block.upsell" />
+        <block name="crosssellBlock" class="Magento\AcceptanceTest\Catalog\Page\Storefront\Block\Product\ProductList\Crosssell" locator=".block.crosssell" />
+        <block name="downloadableLinksBlock" class="Magento\AcceptanceTest\Downloadable\Page\Storefront\Block\Catalog\Product\View\Links" locator="[data-container-for=downloadable-links]" />
+        <block name="messagesBlock" class="Magento\AcceptanceTest\Backend\Page\Storefront\Block\Messages" locator=".page.messages" />
+        <block name="titleBlock" class="Magento\AcceptanceTest\Theme\Page\Storefront\Block\Html\Title" locator=".page-title-wrapper h1.page-title .base" />
+        <block name="widgetView" class="Magento\AcceptanceTest\Widget\Page\Storefront\Block\WidgetView" locator=".column.main .widget" />
+    </page>
+</config>

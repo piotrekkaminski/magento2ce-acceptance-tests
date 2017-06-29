@@ -9,11 +9,26 @@ class RoboFile extends \Robo\Tasks
 {
     use Robo\Task\Base\loadShortcuts;
 
-    // define public methods as commands
+    // Define public methods as commands
     function cloneFiles() {
         $this->_exec('cp -vn .env.example .env');
         $this->_exec('cp -vn codeception.dist.yml codeception.yml');
         $this->_exec('cp -vn tests/acceptance.suite.dist.yml tests/acceptance.suite.yml');
+    }
+
+    // Generate page objects
+    function generatePageObjects() {
+        $this->cloneFiles();
+        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework');
+        $this->_exec('composer install');
+        $this->_exec('cd ../../..');
+        $this->_exec('php tests/utils/PageGenerator.php');
+    }
+
+    // Build project.
+    function buildProject() {
+        $this->cloneFiles();
+        $this->_exec('vendor/bin/codeception build');
     }
 
     function allureGenerate() {
