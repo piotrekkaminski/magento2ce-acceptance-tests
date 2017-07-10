@@ -9,7 +9,6 @@
         }
     ],
     "require": {
-	    "php": ">=5.4.0 <8.0",
         "magento/magento2-acceptance-test-framework": "dev-master",
         "allure-framework/allure-codeception": "dev-master",
         "consolidation/robo": "^1.0.0",
