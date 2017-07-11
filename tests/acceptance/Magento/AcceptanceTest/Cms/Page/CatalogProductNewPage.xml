@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/pageObject.xsd">
-    <page name="CatalogProductNew" area="Adminhtml" mca="catalog/product/new" module="Magento_Catalog">
-        <block name="productForm" class="Magento\AcceptanceTest\Catalog\Page\Adminhtml\Block\Product\Edit" locator="[id='page:main-container']">
-            <element name="productQuantity" type="input" required="true" locator=".admin__field[data-index=quantity_and_stock_status_qty] input" />
-        </block>
-    </page>
-</config>

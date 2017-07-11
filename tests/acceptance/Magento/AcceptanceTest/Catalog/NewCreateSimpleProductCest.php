@@ -2,8 +2,8 @@
 namespace Magento\AcceptanceTest\Catalog;
 
 use Magento\AcceptanceTestFramework\Step\Backend\AdminStep;
-use Magento\AcceptanceTest\Catalog\Page\Adminhtml\CatalogProductIndex;
-use Magento\AcceptanceTest\Catalog\Page\Adminhtml\CatalogProductNew;
+use Magento\AcceptanceTest\Catalog\Page\Adminhtml\ProductIndex;
+use Magento\AcceptanceTest\Catalog\Page\Adminhtml\ProductEdit;
 use Yandex\Allure\Adapter\Annotation\Features;
 use Yandex\Allure\Adapter\Annotation\Stories;
 use Yandex\Allure\Adapter\Annotation\Title;
@@ -69,19 +69,19 @@ class NewCreateSimpleProductCest
      * @Severity(level = SeverityLevel::CRITICAL)
      *
      * @param AdminStep $I
-     * @param CatalogProductIndex $catalogProductIndex
-     * @param CatalogProductNew $catalogProductNew
+     * @param ProductIndex $productIndex
+     * @param ProductEdit $productEdit
      * @return void
      */
     public function createSimpleProductTest(
         AdminStep $I,
-        CatalogProductIndex $adminProductIndex,
-        CatalogProductNew $adminProductNew
+        ProductIndex $productIndex,
+        ProductEdit $productEdit
     ) {
         $I->wantTo('create simple product with required fields in admin product page.');
-        $gridActionBlock = $adminProductIndex->getBlockInstance('productGridActionBlock');
+        $gridActionBlock = $productIndex->getBlockInstance('productGridAction');
         $gridActionBlock->clickButtonAddProductToggle();
         $gridActionBlock->clickButtonAddSimpleProduct();
-        $adminProductNew->getBlockInstance('productForm')->fillFieldProductName($this->product['name']);
+        $productEdit->getBlockInstance('productForm')->fillFieldProductName($this->product['name']);
     }
 }

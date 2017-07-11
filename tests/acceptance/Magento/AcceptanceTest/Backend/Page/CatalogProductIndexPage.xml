@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/pageObject.xsd">
-    <page name="CatalogProductIndex" area="Adminhtml" mca="catalog/product/index" module="Magento_Catalog">
-        <block name="productGrid" class="Magento\AcceptanceTest\Catalog\Page\Adminhtml\Block\Product\Index" locator="//div[contains(@data-bind, 'product_listing')]" parent_class="Magento\AcceptanceTestFramework\Page\Block\AdminGrid">
-            <element name="productGridElement3" type="input" required="true" locator="#addLocator" />
-        </block>
-    </page>
-</config>

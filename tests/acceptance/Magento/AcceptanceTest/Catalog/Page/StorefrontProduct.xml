@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/pageObject.xsd">
+    <page name="Product" area="Storefront" mca="catalog/product/view" module="Magento_Catalog">
+        <block name="Magento\AcceptanceTest\Catalog\Block\Storefront\Product\ProductInfoMain" locator=".product-info-main" />
+        <block name="Magento\AcceptanceTest\Catalog\Block\Storefront\Product\ProductInfoDetails" locator=".product.info.detailed" />
+        <block name="Magento\AcceptanceTest\Catalog\Block\Storefront\Product\ProductImage" locator=".product.media" />
+        <block name="Magento\AcceptanceTest\Cms\Block\Storefront\Messages" locator=".page.messages" />
+    </page>
+</config>

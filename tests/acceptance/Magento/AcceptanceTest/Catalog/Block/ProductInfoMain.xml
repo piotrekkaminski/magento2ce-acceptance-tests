@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/blockObject.xsd">
+    <block name="Magento\AcceptanceTest\Catalog\Block\Storefront\Product\ProductInfoMain">
+        <element name="productName" type="text" required="false" locator=".base" />
+        <element name="productSku" type="text" required="false" locator=".product.attribute.sku>.value" />
+        <element name="productPrice" type="text" required="false" locator=".price" />
+        <element name="productStockStatus" type="text" locator=".stock[title=Availability]>span" />
+    </block>
+</config>
