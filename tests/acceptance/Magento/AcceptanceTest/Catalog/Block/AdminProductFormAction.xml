@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/blockObject.xsd">
+    <block name="Magento\AcceptanceTest\Catalog\Block\Adminhtml\Product\Edit\ProductFormActions">
+        <element name="saveButton" type="button" locator="#save-button" wait_required="true"/>
+    </block>
+</config>
