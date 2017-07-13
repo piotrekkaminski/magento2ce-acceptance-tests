@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../DataGenerator/etc/DataProfileSchema.xsd">
+    <entity name="CustomerEntityOne" type="customer">
+        <data key="FirstName">FirstNameData</data>
+        <data key="LastName">LastName</data>
+        <data key="DOB">2017-06-12 14:00:00</data>
+        <data key="Email">apitest@mgail.com</data>
+        <required-entity type="address">CustomerAddressOne</required-entity>
+    </entity>
+</config>
