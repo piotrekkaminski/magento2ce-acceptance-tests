@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../DataGenerator/etc/DataProfileSchema.xsd">
+    <entity name="CustomerRegionOne" type="region">
+        <data key="region_code">100</data>
+        <data key="region_id">12</data>
+    </entity>
+</config>

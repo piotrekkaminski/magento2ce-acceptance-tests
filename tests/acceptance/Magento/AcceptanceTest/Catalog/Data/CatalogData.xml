@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../DataGenerator/etc/DataProfileSchema.xsd">
+    <entity name="catalogOne" type="catalog">
+        <data key="catalogName">data</data>
+        <required-entity type="configurableProduct">ConfigurableProductOne</required-entity>
+    </entity>
+</config>
