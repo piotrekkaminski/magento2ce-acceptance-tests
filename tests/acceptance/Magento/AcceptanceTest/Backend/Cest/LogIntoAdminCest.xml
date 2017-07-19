@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test XML Example -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+    <cest name="LogIntoAdminCest">
+        <use path="AcceptanceTest\Backend\Page\Adminhtml\AdminLogin"/>
+        <use path="AcceptanceTestFramework\Step\Backend\AdminStep"/>
+        <annotations>
+            <features value="Admin Login"/>
+            <stories value="Access Admin Login Page"/>
+            <env value="chrome"/>
+            <env value="firefox"/>
+            <env value="phantomjs"/>
+        </annotations>
+        <test name="logIntoAdmin">
+            <annotations>
+                <title value="You should be able to log into the Magento Admin backend."/>
+                <description value="You should be able to log into the Magento Admin backend."/>
+                <severity value="CRITICAL"/>
+                <group value="banana"/>
+            </annotations>
+            <dependency name="AdminStep" actor="I"/>
+            <dependency name="AdminLogin" actor="loginPage"/>
+            <action function="am" parameter="'an Admin.'" name="contextSetting"/>
+            <action function="wantTo" parameter="'verify that I can access the Admin Login page.'" name="declareGoal"/>
+            <action function="goToTheAdminLoginPage" name="navigateToAdminPage" />
+            <action function="getLoginForm" name="getLoginBlock" actor="loginPage" returnVariable="loginForm"/>
+            <action function="fillFieldUsername" name="fillInUsername" actor="loginForm" userInput="admin"/>
+            <action function="fillFieldPassword" name="fillInPassword" actor="loginForm" userInput="admin123"/>
+            <action function="clickButtonSignIn" name="signIn" actor="loginForm"/>
+            <action function="shouldBeOnTheAdminDashboardPage" name="assertDashboardResult"/>
+        </test>
+    </cest>
+</config>

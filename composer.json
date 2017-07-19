@@ -10,7 +10,7 @@
     ],
     "require": {
 	    "php": "~7.0",
-        "magento/magento2-acceptance-test-framework": "dev-develop",
+        "magento/magento2-acceptance-test-framework": "dev-MQE-185-refactor-page-object-generator",
         "allure-framework/allure-codeception": "dev-master",
         "consolidation/robo": "^1.0.0"
     },
