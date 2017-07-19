@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test XML Example -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+    <cest name="">
+        <use path=""/>
+        <annotations>
+            <features value=""/>
+            <stories value=""/>
+            <group value=""/>
+            <env value=""/>
+        </annotations>
+        <before>
+            <dependency name="" actor=""/>
+            <action actor="" function="" name=""/>
+        </before>
+        <test name="">
+            <annotations>
+                <title value=""/>
+                <description value=""/>
+                <severity value=""/>
+                <testCaseId value=""/>
+            </annotations>
+            <dependency name="" actor=""/>
+            <action actor="" function="" parameter="" name=""/>
+            <action actor="" function="" selector="" userInput="" name=""/>
+        </test>
+        <after>
+            <dependency name="" actor=""/>
+            <action actor="" function="" name=""/>
+        </after>
+    </cest>
+</config>

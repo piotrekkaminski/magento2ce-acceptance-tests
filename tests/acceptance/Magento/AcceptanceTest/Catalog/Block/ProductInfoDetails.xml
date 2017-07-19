@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/blockObject.xsd">
-    <block name="Magento\AcceptanceTest\Catalog\Block\Storefront\Product\ProductInfoDetails">
-        <element name="productNameForReview" type="text" required="false" locator=".legend.review-legend>strong" />
-    </block>
-</config>

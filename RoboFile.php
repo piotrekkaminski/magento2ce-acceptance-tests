@@ -17,12 +17,8 @@ class RoboFile extends \Robo\Tasks
     }
 
     // Generate page objects
-    function generatePageObjects() {
-        $this->cloneFiles();
-        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework');
-        $this->_exec('composer install');
-        $this->_exec('cd ../../..');
-        $this->_exec('php tests/utils/PageGenerator.php');
+    function generatePages() {
+        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php PageGenerator.php');
     }
 
     // Build project.
@@ -71,6 +67,10 @@ class RoboFile extends \Robo\Tasks
         $this->allureReport();
     }
 
+    function generated() {
+        $this->_exec('codecept run acceptance --env chrome --skip-group skip --group generated');
+    }
+
     function firefox() {
         $this->_exec('codecept run acceptance --env firefox --skip-group skip');
         $this->allureReport();
@@ -85,5 +85,15 @@ class RoboFile extends \Robo\Tasks
     {
         $this->_exec('codecept run --env chrome --group catalog');
         $this->allureReport();
+    }
+
+    function folder($args = '')
+    {
+        $this->taskExec('codecept run acceptance --env chrome')->args($args)->run();
+    }
+
+    function generateTests()
+    {
+        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php TestGenerator.php');
     }
 }
