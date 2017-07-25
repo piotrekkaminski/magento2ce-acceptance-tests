@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/blockObject.xsd">
-    <block name="Magento\AcceptanceTest\Catalog\Block\Adminhtml\Product\Edit\ProductForm">
-        <element name="productQuantity" type="input" required="true" locator=".admin__field[data-index=quantity_and_stock_status_qty] input" />
-    </block>
-</config>
