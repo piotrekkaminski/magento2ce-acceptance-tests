@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+    <cest name="AdminCreateCategoryCest">
+        <annotations>
+            <features value="Category Creation"/>
+            <title value="Create a Category via Admin"/>
+            <group value="category"/>
+            <env value="chrome"/>
+            <env value="firefox"/>
+            <env value="phantomjs"/>
+        </annotations>
+        <test name="CreateCategoryViaAdmin">
+            <annotations>
+                <title value="You should be able to create a Category in the admin back-end."/>
+                <description value="You should be able to create a Category in the admin back-end."/>
+                <severity value="CRITICAL"/>
+            </annotations>
+            <amOnPage url="AdminLoginPage" mergeKey="navigateToAdmin"/>
+            <fillField userInput="admin" selector="AdminLoginFormSection.username" mergeKey="fillUsername"/>
+            <fillField userInput="admin123" selector="AdminLoginFormSection.password" mergeKey="fillPassword"/>
+            <click mergeKey="clickLogin" selector="AdminLoginFormSection.signIn"/>
+            <amOnPage mergeKey="navigateToCategoryPage" url="AdminCategoryPage"/>
+            <click mergeKey="addSubcategory" selector="AdminCategorySidebarActionSection.AddSubcategoryButton"/>
+            <fillField userInput="testCategory" mergeKey="fillCategoryName" selector="AdminCategoryBasicFieldSection.CategoryNameInput"/>
+            <click mergeKey="openSEO" selector="AdminCategorySEOSection.SectionHeader"/>
+            <fillField userInput="testCategoryURL" mergeKey="fillURLKey" selector="AdminCategorySEOSection.UrlKeyInput"/>
+            <click mergeKey="saveCategory" selector="AdminCategoryMainActionsSection.SaveButton"/>
+            <seeElement mergeKey="assertSuccess" selector="AdminCategoryMessagesSection.SuccessMessage"/>
+            <!-- Literal URL below, need to refactor line + StorefrontCategoryPage when support for variable URL is implemented-->
+            <amOnPage url="/testCategoryURL.html" mergeKey="goToCategoryFrontpage"/>
+            <seeInTitle userInput="testCategoryURL" mergeKey="assertTitle"/>
+            <see userInput="testCategoryURL" mergeKey="assertInfo1" selector="StorefrontCategoryMainSection.CategoryTitle"/>
+        </test>
+    </cest>
+</config>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
+    <section name="AdminCategorySidebarTreeSection">
+        <element name="Collapse All" type="button" locator=".tree-actions a:first-child"/>
+        <element name="Expand All" type="button" locator=".tree-actions a:last-child"/>
+    </section>
+</config>
