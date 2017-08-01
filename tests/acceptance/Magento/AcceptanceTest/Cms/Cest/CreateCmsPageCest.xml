@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+    <cest name="CreateCmsPageCest">
+        <!-- todo: annotations? -->
+        <test name="Create New Page">
+            <!-- todo: annotations? -->
+            <amOnPage url="AdminLoginPage" mergeKey="navigateToAdmin"/>
+            <fillField userInput="admin" selector="AdminLoginFormSection.username" mergeKey="fillUsername"/>
+            <fillField userInput="admin123" selector="AdminLoginFormSection.password" mergeKey="fillPassword"/>
+            <click mergeKey="clickLogin" selector="AdminLoginFormSection.signIn"/>
+            <amOnPage url="CmsPagesPage" mergeKey="amOnPagePagesGrid"/>
+            <click selector="CmsPagesPageActionsSection.addNewPage" mergeKey="clickAddNewPage"/>
+            <fillField selector="CmsNewPagePageBasicFieldsSection.pageTitle" userInput="Test Page" mergeKey="fillFieldTitle"/>
+            <click selector="CmsNewPagePageContentSection.header" mergeKey="clickExpandContent"/>
+            <fillField selector="CmsNewPagePageContentSection.contentHeading" userInput="Test Content Heading" mergeKey="fillFieldContentHeading"/>
+            <fillField selector="CmsNewPagePageContentSection.content" userInput="Sample page content. Yada yada yada." mergeKey="fillFieldContent"/>
+            <click selector="CmsNewPagePageSeoSection.header" mergeKey="clickExpandSearchEngineOptimisation"/>
+            <fillField selector="CmsNewPagePageSeoSection.urlKey" userInput="test-page" mergeKey="fillFieldUrlKey"/>
+            <click selector="CmsNewPagePageActionsSection.savePage" mergeKey="clickSavePage"/>
+            <see userInput="You saved the page." mergeKey="seeSuccessMessage"/>
+            <amOnPage url="test-page" mergeKey="amOnPageTestPage"/>
+            <see userInput="Test Content Heading" mergeKey="seeContentHeading"/>
+            <see userInput="Sample page content. Yada yada yada." mergeKey="seeContent"/>
+        </test>
+    </cest>
+</config>
