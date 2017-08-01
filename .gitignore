@@ -6,3 +6,4 @@ tests/acceptance.suite.yml
 codeception.yml
 .env
 generated
+_generated

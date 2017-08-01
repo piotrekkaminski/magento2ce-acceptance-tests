@@ -3,7 +3,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
     <cest name="CreateCmsPageCest">
         <!-- todo: annotations? -->
-        <test name="Create New Page">
+        <test name="CreateNewPage">
             <!-- todo: annotations? -->
             <amOnPage url="AdminLoginPage" mergeKey="navigateToAdmin"/>
             <fillField userInput="admin" selector="AdminLoginFormSection.username" mergeKey="fillUsername"/>

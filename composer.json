@@ -10,9 +10,10 @@
     ],
     "require": {
 	    "php": "~7.0",
-        "magento/magento2-acceptance-test-framework": "dev-MQE-185-refactor-page-object-generator",
+        "magento/magento2-acceptance-test-framework": "dev-MQE-220-Updated-XML-to-PHP-Generator",
         "allure-framework/allure-codeception": "dev-master",
-        "consolidation/robo": "^1.0.0"
+        "consolidation/robo": "^1.0.0",
+        "henrikbjorn/lurker": "^1.2"
     },
     "autoload": {
         "psr-0": {

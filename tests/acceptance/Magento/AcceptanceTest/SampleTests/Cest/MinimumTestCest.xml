@@ -3,8 +3,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
     <cest name="MinimumFieldsCest">
-        <use path="AcceptanceTester"/>
-        <use path="AdminNavigation"/>
         <annotations>
             <features value="Minimum Test"/>
             <stories value="Minimum Test"/>
@@ -14,17 +12,14 @@
             <env value="firefox"/>
             <env value="phantomjs"/>
         </annotations>
-        <test name="MinimumFieldsTest">
-            <dependency name="AcceptanceTester" actor="I"/>
-            <action function="amOnUrl" userInput="http://127.0.0.1:32772/admin/" name="amOnPage"/>
-            <action function="fillField" selector="#username" userInput="admin" name="fillField"/>
-            <action function="fillField" selector="#login" userInput="123123q" name="fillField"/>
-            <action function="click" selector=".actions .action-primary" name="clickOnSignIn"/>
-            <action function="waitForPageLoad" name="waitForPageLoad"/>
-        </test>
         <after>
-            <dependency name="AdminNavigation" actor="I"/>
-            <action function="shouldBeOnTheAdminDashboardPage" name="shouldBeOnTheAdminDashboardPage"/>
+            <seeInCurrentUrl url="/admin/admin/" mergeKey="seeInCurrentUrl"/>
         </after>
+        <test name="MinimumFieldsTest">
+            <amOnUrl url="http://127.0.0.1:32772/admin/" mergeKey="amOnPage"/>
+            <fillField selector="#username" userInput="admin" mergeKey="fillField1"/>
+            <fillField selector="#login" userInput="123123q" mergeKey="fillField2"/>
+            <click selector=".actions .action-primary" mergeKey="clickOnSignIn"/>
+        </test>
     </cest>
 </config>

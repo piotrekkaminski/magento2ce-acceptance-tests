@@ -24,7 +24,7 @@ class RoboFile extends \Robo\Tasks
     // Build project.
     function buildProject() {
         $this->cloneFiles();
-        $this->_exec('vendor/bin/codeception build');
+        $this->_exec('vendor/bin/codecept build');
     }
 
     function allureGenerate() {
@@ -94,6 +94,24 @@ class RoboFile extends \Robo\Tasks
 
     function generateTests()
     {
-        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php TestGenerator.php');
+        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php GenerateTestsFromObjects.php');
+    }
+
+    function watchSampleTest()
+    {
+        $this->taskWatch()
+             ->monitor('tests/acceptance/Magento/AcceptanceTest/SampleTests/Cest/SampleCest.xml', function () {
+                 $this->taskExec('robo generate:tests')->run();
+                 $this->say('Generator ran!');
+             })->run();
+    }
+
+    function watchGenerator()
+    {
+        $this->taskWatch()
+            ->monitor('vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util/GenerateTestsFromObjects.php', function () {
+                $this->taskExec('robo generate:tests')->run();
+                $this->say('Generator ran!');
+            })->run();
     }
 }
