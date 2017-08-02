@@ -20,11 +20,21 @@ We recommend using [PHPStorm 2017](https://www.jetbrains.com/phpstorm/) for your
 ----
 
 # Installation
-Open a Terminal window and  _**CD**_ to the CE Acceptance Tests directory. Run `composer install` to install all Project Dependencies.
-
-`cd LOCATION_OF_REPO`
-
-`composer install`
+You can **either** install through composer **or** clone from git repository.
+##Git
+  *
+    ```
+    git clone GITHUB_REPO_URL
+    cd magento2ce-acceptance-tests
+    composer install
+    ```
+##Composer
+  * 
+    ```
+    mkdir DIR_NAME
+    cd DIR_NAME
+    composer create-project --repository-url=GITHUB_REPO_URL magento/magento2ce-acceptance-tests-metapackage
+    ```
 
 ----
 
