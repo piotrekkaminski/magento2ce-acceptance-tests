@@ -16,11 +16,11 @@
                 <severity value="CRITICAL"/>
                 <group value="login"/>
             </annotations>
-            <amOnUrl url="http://127.0.0.1:32772/admin/" mergeKey="amOnPage"/>
-            <fillField selector="#username" userInput="admin" mergeKey="fillField1"/>
-            <fillField selector="#login" userInput="123123q" mergeKey="fillField2"/>
-            <click selector=".actions .action-primary" mergeKey="clickOnSignIn"/>
-            <seeInCurrentUrl url="/admin/admin/" mergeKey="seeInCurrentUrl"/>
+            <amOnUrl url="{{AdminLoginPage}}" mergeKey="amOnPage"/>
+            <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillField1"/>
+            <fillField selector="{{AdminLoginFormSection.password}}" userInput="123123q" mergeKey="fillField2"/>
+            <click selector="{{AdminLoginFormSection.signIn}}" mergeKey="clickOnSignIn"/>
+            <seeInCurrentUrl url="{{AdminLoginPage}}" mergeKey="seeInCurrentUrl"/>
         </test>
     </cest>
 </config>

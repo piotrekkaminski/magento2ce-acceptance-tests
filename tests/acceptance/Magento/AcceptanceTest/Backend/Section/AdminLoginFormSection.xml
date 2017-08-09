@@ -4,6 +4,6 @@
     <section name="AdminLoginFormSection">
         <element name="username" type="input" locator="#username"/>
         <element name="password" type="input" locator="#login"/>
-        <element name="signIn" type="button" locator=".action-login"/>
+        <element name="signIn" type="button" locator=".actions .action-primary"/>
     </section>
 </config>
