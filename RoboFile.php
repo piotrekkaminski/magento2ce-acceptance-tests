@@ -5,6 +5,8 @@
  * @see http://robo.li/
  */
 
+require 'tests/acceptance/_bootstrap.php'; //currently this file will only work for the acceptance tests
+
 class RoboFile extends \Robo\Tasks
 {
     use Robo\Task\Base\loadShortcuts;
@@ -37,24 +39,19 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Generate all Page Objects
-     */
-    function generatePages() {
-        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php PageGenerator.php');
-    }
-
-    /**
      * Generate all Tests
      */
     function generateTests()
     {
-        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php GenerateTestsFromObjects.php');
+        \Magento\AcceptanceTestFramework\Util\TestGenerator::getInstance()->createAllCestFiles();
+        $this->say("Generate Tests Command Run");
     }
 
     /**
      * Run all Acceptance tests using the Chrome environment
      */
-    function chrome() {
+    function chrome()
+    {
         $this->_exec('codecept run acceptance --env chrome --skip-group skip');
         $this->allureReport();
     }
@@ -62,7 +59,8 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run all Acceptance tests using the FireFox environment
      */
-    function firefox() {
+    function firefox()
+    {
         $this->_exec('codecept run acceptance --env firefox --skip-group skip');
         $this->allureReport();
     }
@@ -70,7 +68,8 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run all Acceptance tests using the PhantomJS environment
      */
-    function phantomjs() {
+    function phantomjs()
+    {
         $this->_exec('codecept run acceptance --env phantomjs --skip-group skip');
         $this->allureReport();
     }
@@ -78,7 +77,8 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run all Tests with the specified @group tag, excluding @group 'skip', using the Chrome environment
      */
-    function group($args = '') {
+    function group($args = '')
+    {
         $this->taskExec('codecept run acceptance --verbose --steps --env chrome --skip-group skip --group')->args($args)->run();
     }
 
@@ -93,7 +93,8 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run all Tests marked with the @group tag 'example', using the Chrome environment
      */
-    function example() {
+    function example()
+    {
         $this->_exec('codecept run --env chrome --group example --skip-group skip');
         $this->allureReport();
     }
@@ -101,21 +102,24 @@ class RoboFile extends \Robo\Tasks
     /**
      * Generate the HTML for the Allure report based on the Test XML output
      */
-    function allureGenerate() {
+    function allureGenerate()
+    {
         return $this->_exec('allure generate tests/_output/allure-results/ -o tests/_output/allure-report/');
     }
 
     /**
      * Open the HTML Allure report
      */
-    function allureOpen() {
+    function allureOpen()
+    {
         $this->_exec('allure report open --report-dir tests/_output/allure-report/');
     }
 
     /**
      * Generate and open the HTML Allure report
      */
-    function allureReport() {
+    function allureReport()
+    {
         $result1 = $this->allureGenerate();
 
         if ($result1->wasSuccessful()) {
