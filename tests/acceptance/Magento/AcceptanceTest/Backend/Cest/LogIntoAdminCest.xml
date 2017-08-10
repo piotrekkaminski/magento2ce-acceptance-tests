@@ -5,6 +5,7 @@
         <annotations>
             <features value="Admin Login"/>
             <stories value="Access Admin Login Page"/>
+            <group value="example"/>
             <env value="chrome"/>
             <env value="firefox"/>
             <env value="phantomjs"/>
