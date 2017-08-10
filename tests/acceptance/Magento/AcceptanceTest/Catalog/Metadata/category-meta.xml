@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/EntityMetadata.xsd">
+    <metadata name="createCategory" dataType="category" operation="create" auth="/rest/V1/integration/admin/token" url="/rest/V1/categories" method="POST">
+        <header param="Content-Type">application/json</header>
+        <entry key="id">integer</entry>
+        <entry key="parentId">integer</entry>
+        <entry key="name">string</entry>
+        <entry key="is_active">boolean</entry>
+        <entry key="position">integer</entry>
+        <entry key="level">integer</entry>
+        <entry key="children">string</entry>
+        <entry key="createdAt">string</entry>
+        <entry key="updatedAt">string</entry>
+        <entry key="path">string</entry>
+        <entry key="includeInMenu">boolean</entry>
+    </metadata>
+
+    <metadata name="deleteCategory" dataType="category" operation="delete" auth="/rest/V1/integration/admin/token" url="/rest/V1/categories" method="DELETE">
+        <header param="Content-Type">application/json</header>
+        <param key="id" type="path">{categoryId}</param>
+    </metadata>
+</config>

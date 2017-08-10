@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+    <cest name="AdminCreateSimpleProductCest">
+        <annotations>
+            <features value="Simple Product Creation"/>
+            <title value="Create a Simple Product via Admin"/>
+            <group value="product"/>
+            <env value="chrome"/>
+            <env value="firefox"/>
+            <env value="phantomjs"/>
+        </annotations>
+        <before>
+            <createData entity="AdminCreateSimpleProductCestCategory" mergeKey="createPrereqCategory"/>
+        </before>
+        <test name="AdminCreateSimpleProduct">
+            <annotations>
+                <title value="You should be able to create a Simple Product in the admin back-end."/>
+                <description value="You should be able to create a Simple Product in the admin back-end."/>
+                <severity value="CRITICAL"/>
+            </annotations>
+
+            <amOnPage url="{{AdminLoginPage.url}}" mergeKey="navigateToAdmin"/>
+            <fillField userInput="admin" selector="{{AdminLoginFormSection.username}}" mergeKey="fillUsername"/>
+            <fillField userInput="admin123" selector="{{AdminLoginFormSection.password}}" mergeKey="fillPassword"/>
+            <click mergeKey="clickLogin" selector="{{AdminLoginFormSection.signIn}}"/>
+            <amOnPage url="{{AdminProductIndexPage.url}}" mergeKey="navigateToProductIndex"/>
+            <click mergeKey="clickAddProductDropdown" selector="{{AdminProductGridActionSection.addProductToggle}}"/>
+            <click mergeKey="clickAddSimpleProduct" selector="{{AdminProductGridActionSection.addSimpleProduct}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="fillName" selector="{{AdminProductFormSection.productName}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="fillSKU" selector="{{AdminProductFormSection.productSku}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="fillPrice" selector="{{AdminProductFormSection.productPrice}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.quantity}}" mergeKey="fillQuantity" selector="{{AdminProductFormSection.productQuantity}}"/>
+            <searchAndMultiSelectOption selector="{{AdminProductFormSection.categoriesDropdown}}" parameterArray="[{{AdminCreateSimpleProductCestProduct.name}}]" mergeKey="searchAndSelectCategory"/>
+            <click mergeKey="openSeoSection" selector="{{AdminProductSEOSection.sectionHeader}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.urlKey}}" mergeKey="fillUrlKey" selector="{{AdminProductSEOSection.urlKeyInput}}"/>
+            <click mergeKey="saveProduct" selector="{{AdminProductFormActionSection.saveButton}}"/>
+            <seeElement mergeKey="assertSaveMessageSuccess" selector="{{AdminProductMessagesSection.successMessage}}"/>
+            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertFieldName" selector="{{AdminProductFormSection.productName}}"/>
+            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="assertFieldSku" selector="{{AdminProductFormSection.productSku}}"/>
+            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="assertFieldPrice" selector="{{AdminProductFormSection.productPrice}}"/>
+            <click mergeKey="openSeoSectionAssert" selector="{{AdminProductSEOSection.sectionHeader}}"/>
+            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.urlKey}}" mergeKey="assertFieldUrlKey" selector="{{AdminProductSEOSection.urlKeyInput}}"/>
+            <!-- Go to storefront category page, assert product visibility -->
+            <amOnPage url="{{AdminCreateSimpleProductCestCategory.name}}.html" mergeKey="navigateToCategoryPage"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductPresent"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="assertProductPricePresent"/>
+            <!-- Go to storefront product page, assert product visibility -->
+            <amOnPage url="{{AdminCreateSimpleProductCestProduct.name}}.html" mergeKey="navigateToProductPage"/>
+            <seeInTitle userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductNameTitle"/>
+            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductName" selector="{{StorefrontProductInfoMainSection.productName}}"/>
+            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="assertProductPrice" selector="{{StorefrontProductInfoMainSection.productPrice}}"/>
+            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="assertProductSku" selector="{{StorefrontProductInfoMainSection.productSku}}"/>
+        </test>
+        <after>
+            <deleteData createDataKey="createPrereqCategory" mergeKey="deletePrereqCategory"/>
+        </after>
+    </cest>
+</config>
