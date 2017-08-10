@@ -17,9 +17,11 @@
         </annotations>
         <before>
             <amOnUrl url="http://127.0.0.1:32772/admin/" mergeKey="amOnPage"/>
+            <createData entity="CustomerEntity1" mergeKey="createData1"/>
         </before>
         <after>
             <amOnUrl url="http://127.0.0.1:32772/admin/admin/auth/logout" mergeKey="amOnPage"/>
+            <deleteData createDataKey="createData1" mergeKey="deleteData1"/>
         </after>
         <test name="AllFieldsTest">
             <annotations>
@@ -47,6 +49,8 @@
             <clickWithRightButton selectorArray="['css' => '.checkout']" mergeKey="clickWithRightButton2" x="23" y="324"/>
             <clickWithRightButton mergeKey="clickWithRightButton3" x="23" y="324"/>
             <closeTab mergeKey="closeTab"/>
+            <createData entity="CustomerEntity1" mergeKey="createData1"/>
+            <deleteData createDataKey="createData1" mergeKey="deleteData1"/>
             <dontSee userInput="Text" mergeKey="dontSee1"/>
             <dontSee userInput="Text" selector=".title" mergeKey="dontSee2"/>
             <dontSee userInput="Text" selectorArray="['css' => 'body h1']" mergeKey="dontSee3"/>
