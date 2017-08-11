@@ -22,8 +22,8 @@
             </annotations>
 
             <amOnPage url="{{AdminLoginPage.url}}" mergeKey="navigateToAdmin"/>
-            <fillField userInput="admin" selector="{{AdminLoginFormSection.username}}" mergeKey="fillUsername"/>
-            <fillField userInput="admin123" selector="{{AdminLoginFormSection.password}}" mergeKey="fillPassword"/>
+            <fillField userInput="{{_ENV.MAGENTO_ADMIN_USERNAME}}" selector="{{AdminLoginFormSection.username}}" mergeKey="fillUsername"/>
+            <fillField userInput="{{_ENV.MAGENTO_ADMIN_PASSWORD}}" selector="{{AdminLoginFormSection.password}}" mergeKey="fillPassword"/>
             <click mergeKey="clickLogin" selector="{{AdminLoginFormSection.signIn}}"/>
             <amOnPage url="{{AdminProductIndexPage.url}}" mergeKey="navigateToProductIndex"/>
             <click mergeKey="clickAddProductDropdown" selector="{{AdminProductGridActionSection.addProductToggle}}"/>
@@ -32,7 +32,7 @@
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="fillSKU" selector="{{AdminProductFormSection.productSku}}"/>
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="fillPrice" selector="{{AdminProductFormSection.productPrice}}"/>
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.quantity}}" mergeKey="fillQuantity" selector="{{AdminProductFormSection.productQuantity}}"/>
-            <searchAndMultiSelectOption selector="{{AdminProductFormSection.categoriesDropdown}}" parameterArray="['{{AdminCreateSimpleProductCestProduct.name}}']" mergeKey="searchAndSelectCategory"/>
+            <searchAndMultiSelectOption selector="{{AdminProductFormSection.categoriesDropdown}}" parameterArray="['{{AdminCreateSimpleProductCestCategory.name}}']" mergeKey="searchAndSelectCategory"/>
             <click mergeKey="openSeoSection" selector="{{AdminProductSEOSection.sectionHeader}}"/>
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.urlKey}}" mergeKey="fillUrlKey" selector="{{AdminProductSEOSection.urlKeyInput}}"/>
             <click mergeKey="saveProduct" selector="{{AdminProductFormActionSection.saveButton}}"/>
@@ -43,15 +43,15 @@
             <click mergeKey="openSeoSectionAssert" selector="{{AdminProductSEOSection.sectionHeader}}"/>
             <seeInField userInput="{{AdminCreateSimpleProductCestProduct.urlKey}}" mergeKey="assertFieldUrlKey" selector="{{AdminProductSEOSection.urlKeyInput}}"/>
             <!-- Go to storefront category page, assert product visibility -->
-            <amOnPage url="{{AdminCreateSimpleProductCestCategory.name}}.html" mergeKey="navigateToCategoryPage"/>
+            <amOnPage url="{{AdminCreateSimpleProductCestProduct.catUrlKey}}.html" mergeKey="navigateToCategoryPage"/>
             <see userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductPresent"/>
             <see userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="assertProductPricePresent"/>
             <!-- Go to storefront product page, assert product visibility -->
-            <amOnPage url="{{AdminCreateSimpleProductCestProduct.name}}.html" mergeKey="navigateToProductPage"/>
+            <amOnPage url="{{AdminCreateSimpleProductCestProduct.urlKey}}.html" mergeKey="navigateToProductPage"/>
             <seeInTitle userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductNameTitle"/>
-            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductName" selector="{{StorefrontProductInfoMainSection.productName}}"/>
-            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="assertProductPrice" selector="{{StorefrontProductInfoMainSection.productPrice}}"/>
-            <seeInField userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="assertProductSku" selector="{{StorefrontProductInfoMainSection.productSku}}"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductName" selector="{{StorefrontProductInfoMainSection.productName}}"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="assertProductPrice" selector="{{StorefrontProductInfoMainSection.productPrice}}"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="assertProductSku" selector="{{StorefrontProductInfoMainSection.productSku}}"/>
         </test>
         <after>
             <deleteData createDataKey="createPrereqCategory" mergeKey="deletePrereqCategory"/>

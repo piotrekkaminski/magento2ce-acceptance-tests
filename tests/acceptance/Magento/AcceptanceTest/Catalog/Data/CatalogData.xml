@@ -12,5 +12,6 @@
         <data key="price">1,234.00</data>
         <data key="urlKey">admincreatesimpleproducturlkey</data>
         <data key="quantity">100</data>
+        <data key="catUrlKey">admincreatesimpleproductcestcategory</data>
     </entity>
 </config>
