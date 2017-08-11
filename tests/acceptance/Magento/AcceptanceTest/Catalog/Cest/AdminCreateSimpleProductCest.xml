@@ -32,7 +32,7 @@
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="fillSKU" selector="{{AdminProductFormSection.productSku}}"/>
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="fillPrice" selector="{{AdminProductFormSection.productPrice}}"/>
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.quantity}}" mergeKey="fillQuantity" selector="{{AdminProductFormSection.productQuantity}}"/>
-            <searchAndMultiSelectOption selector="{{AdminProductFormSection.categoriesDropdown}}" parameterArray="[{{AdminCreateSimpleProductCestProduct.name}}]" mergeKey="searchAndSelectCategory"/>
+            <searchAndMultiSelectOption selector="{{AdminProductFormSection.categoriesDropdown}}" parameterArray="['{{AdminCreateSimpleProductCestProduct.name}}']" mergeKey="searchAndSelectCategory"/>
             <click mergeKey="openSeoSection" selector="{{AdminProductSEOSection.sectionHeader}}"/>
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.urlKey}}" mergeKey="fillUrlKey" selector="{{AdminProductSEOSection.urlKeyInput}}"/>
             <click mergeKey="saveProduct" selector="{{AdminProductFormActionSection.saveButton}}"/>
