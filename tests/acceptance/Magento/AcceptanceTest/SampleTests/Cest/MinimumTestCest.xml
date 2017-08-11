@@ -16,9 +16,9 @@
             <seeInCurrentUrl url="/admin/admin/" mergeKey="seeInCurrentUrl"/>
         </after>
         <test name="MinimumFieldsTest">
-            <amOnPage url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
+            <amOnUrl url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
             <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillUsername"/>
-            <fillField selector="{{AdminLoginFormSection.password}}" userInput="admin123" mergeKey="fillPassword"/>
+            <fillField selector="{{AdminLoginFormSection.password}}" userInput="123123q" mergeKey="fillPassword"/>
             <click selector="{{AdminLoginFormSection.signIn}}" mergeKey="clickLogin"/>
         </test>
     </cest>

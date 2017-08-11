@@ -6,6 +6,7 @@
             <features value="Admin Login"/>
             <stories value="Access Admin Login Page"/>
             <group value="example"/>
+            <group value="login"/>
             <env value="chrome"/>
             <env value="firefox"/>
             <env value="phantomjs"/>
@@ -15,7 +16,6 @@
                 <title value="You should be able to log into the Magento Admin backend."/>
                 <description value="You should be able to log into the Magento Admin backend."/>
                 <severity value="CRITICAL"/>
-                <group value="login"/>
             </annotations>
             <amOnUrl url="{{AdminLoginPage}}" mergeKey="amOnPage"/>
             <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillField1"/>

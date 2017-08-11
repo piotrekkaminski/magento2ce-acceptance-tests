@@ -16,11 +16,12 @@
                 <description value="You should be able to create a Category in the admin back-end."/>
                 <severity value="CRITICAL"/>
             </annotations>
-            <amOnPage url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
+            <amOnUrl url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
             <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillUsername"/>
-            <fillField selector="{{AdminLoginFormSection.password}}" userInput="admin123" mergeKey="fillPassword"/>
+            <fillField selector="{{AdminLoginFormSection.password}}" userInput="123123q" mergeKey="fillPassword"/>
             <click selector="{{AdminLoginFormSection.signIn}}" mergeKey="clickLogin"/>
-            <amOnPage url="{{AdminCategoryPage}}" mergeKey="navigateToCategoryPage"/>
+            <amOnUrl url="{{AdminCategoryPage}}" mergeKey="navigateToCategoryPage"/>
+            <waitForPageLoad mergeKey="waitForPageLoad1"/>
             <click selector="{{AdminCategorySidebarActionSection.AddSubcategoryButton}}" mergeKey="addSubcategory"/>
             <fillField selector="{{AdminCategoryBasicFieldSection.CategoryNameInput}}" userInput="testCategory" mergeKey="fillCategoryName"/>
             <click selector="{{AdminCategorySEOSection.SectionHeader}}" mergeKey="openSEO"/>

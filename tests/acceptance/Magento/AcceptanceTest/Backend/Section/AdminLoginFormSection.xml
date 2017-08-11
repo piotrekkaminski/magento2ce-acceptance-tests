@@ -2,8 +2,8 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
     <section name="AdminLoginFormSection">
-        <element name="username" type="input" locator="#username" timeOut="100"/>
+        <element name="username" type="input" locator="#username"/>
         <element name="password" type="input" locator="#login"/>
-        <element name="signIn" type="button" locator=".actions .action-primary"/>
+        <element name="signIn" type="button" locator=".actions .action-primary" timeOut="30"/>
     </section>
 </config>

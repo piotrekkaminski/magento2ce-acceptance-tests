@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/SectionObject.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
     <section name="CmsPagesPageActionsSection">
-        <element name="addNewPage" type="button" locator="#add"/>
+        <element name="addNewPage" type="button" locator="#add" timeOut="30"/>
     </section>
 </config>
