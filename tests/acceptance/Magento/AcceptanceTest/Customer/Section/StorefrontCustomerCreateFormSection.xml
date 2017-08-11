@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
+    <section name="StorefrontCustomerCreateFormSection">
+        <element name="firstnameField" type="input" locator="#firstname"/>
+        <element name="lastnameField" type="input" locator="#lastname"/>
+        <element name="emailField" type="input" locator="#email_address"/>
+        <element name="passwordField" type="input" locator="#password"/>
+        <element name="confirmPasswordField" type="input" locator="#password-confirmation"/>
+        <element name="createAccountButton" type="button" locator="button.action.submit.primary" timeOut="10"/>
+    </section>
+</config>

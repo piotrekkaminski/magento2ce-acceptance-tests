@@ -5,8 +5,6 @@
  * @see http://robo.li/
  */
 
-require 'tests/acceptance/_bootstrap.php'; //currently this file will only work for the acceptance tests
-
 class RoboFile extends \Robo\Tasks
 {
     use Robo\Task\Base\loadShortcuts;
@@ -43,6 +41,7 @@ class RoboFile extends \Robo\Tasks
      */
     function generateTests()
     {
+        require 'tests/acceptance/_bootstrap.php';
         \Magento\AcceptanceTestFramework\Util\TestGenerator::getInstance()->createAllCestFiles();
         $this->say("Generate Tests Command Run");
     }
