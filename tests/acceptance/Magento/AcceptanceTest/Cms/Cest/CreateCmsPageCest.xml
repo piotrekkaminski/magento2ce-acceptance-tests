@@ -5,19 +5,19 @@
         <!-- todo: annotations? -->
         <test name="CreateNewPage">
             <!-- todo: annotations? -->
-            <amOnPage url="AdminLoginPage" mergeKey="navigateToAdmin"/>
-            <fillField userInput="admin" selector="AdminLoginFormSection.username" mergeKey="fillUsername"/>
-            <fillField userInput="admin123" selector="AdminLoginFormSection.password" mergeKey="fillPassword"/>
-            <click mergeKey="clickLogin" selector="AdminLoginFormSection.signIn"/>
-            <amOnPage url="CmsPagesPage" mergeKey="amOnPagePagesGrid"/>
-            <click selector="CmsPagesPageActionsSection.addNewPage" mergeKey="clickAddNewPage"/>
-            <fillField selector="CmsNewPagePageBasicFieldsSection.pageTitle" userInput="Test Page" mergeKey="fillFieldTitle"/>
-            <click selector="CmsNewPagePageContentSection.header" mergeKey="clickExpandContent"/>
-            <fillField selector="CmsNewPagePageContentSection.contentHeading" userInput="Test Content Heading" mergeKey="fillFieldContentHeading"/>
-            <fillField selector="CmsNewPagePageContentSection.content" userInput="Sample page content. Yada yada yada." mergeKey="fillFieldContent"/>
-            <click selector="CmsNewPagePageSeoSection.header" mergeKey="clickExpandSearchEngineOptimisation"/>
-            <fillField selector="CmsNewPagePageSeoSection.urlKey" userInput="test-page" mergeKey="fillFieldUrlKey"/>
-            <click selector="CmsNewPagePageActionsSection.savePage" mergeKey="clickSavePage"/>
+            <amOnPage url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
+            <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillUsername"/>
+            <fillField selector="{{AdminLoginFormSection.password}}" userInput="admin123" mergeKey="fillPassword"/>
+            <click selector="{{AdminLoginFormSection.signIn}}" mergeKey="clickLogin"/>
+            <amOnPage url="{{CmsPagesPage}}" mergeKey="amOnPagePagesGrid"/>
+            <click selector="{{CmsPagesPageActionsSection.addNewPage}}" mergeKey="clickAddNewPage"/>
+            <fillField selector="{{CmsNewPagePageBasicFieldsSection.pageTitle}}" userInput="Test Page" mergeKey="fillFieldTitle"/>
+            <click selector="{{CmsNewPagePageContentSection.header}}" mergeKey="clickExpandContent"/>
+            <fillField selector="{{CmsNewPagePageContentSection.contentHeading}}" userInput="Test Content Heading" mergeKey="fillFieldContentHeading"/>
+            <fillField selector="{{CmsNewPagePageContentSection.content}}" userInput="Sample page content. Yada yada yada." mergeKey="fillFieldContent"/>
+            <click selector="{{CmsNewPagePageSeoSection.header}}" mergeKey="clickExpandSearchEngineOptimisation"/>
+            <fillField selector="{{CmsNewPagePageSeoSection.urlKey}}" userInput="test-page" mergeKey="fillFieldUrlKey"/>
+            <click selector="{{CmsNewPagePageActionsSection.savePage}}" mergeKey="clickSavePage"/>
             <see userInput="You saved the page." mergeKey="seeSuccessMessage"/>
             <amOnPage url="test-page" mergeKey="amOnPageTestPage"/>
             <see userInput="Test Content Heading" mergeKey="seeContentHeading"/>

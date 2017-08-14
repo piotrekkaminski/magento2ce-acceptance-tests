@@ -16,10 +16,10 @@
             <seeInCurrentUrl url="/admin/admin/" mergeKey="seeInCurrentUrl"/>
         </after>
         <test name="MinimumFieldsTest">
-            <amOnUrl url="http://127.0.0.1:32772/admin/" mergeKey="amOnPage"/>
-            <fillField selector="#username" userInput="admin" mergeKey="fillField1"/>
-            <fillField selector="#login" userInput="123123q" mergeKey="fillField2"/>
-            <click selector=".actions .action-primary" mergeKey="clickOnSignIn"/>
+            <amOnPage url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
+            <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillUsername"/>
+            <fillField selector="{{AdminLoginFormSection.password}}" userInput="admin123" mergeKey="fillPassword"/>
+            <click selector="{{AdminLoginFormSection.signIn}}" mergeKey="clickLogin"/>
         </test>
     </cest>
 </config>

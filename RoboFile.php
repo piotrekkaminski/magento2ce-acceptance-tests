@@ -9,109 +9,120 @@ class RoboFile extends \Robo\Tasks
 {
     use Robo\Task\Base\loadShortcuts;
 
-    // Define public methods as commands
+    /**
+     * Complete all Project Setup tasks
+     */
+    function setup() {
+        $this->_exec('robo clone:files');
+        $this->_exec('vendor/bin/codecept build');
+        $this->_exec('robo generate:pages');
+        $this->_exec('robo generate:tests');
+    }
+
+    /**
+     * Duplicate the Example configuration files used to customize the Project for customization
+     */
     function cloneFiles() {
         $this->_exec('cp -vn .env.example .env');
         $this->_exec('cp -vn codeception.dist.yml codeception.yml');
         $this->_exec('cp -vn tests/acceptance.suite.dist.yml tests/acceptance.suite.yml');
     }
 
-    // Generate page objects
-    function generatePages() {
-        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php PageGenerator.php');
-    }
-
-    // Build project.
+    /**
+     * Build the Codeception project
+     */
     function buildProject() {
         $this->cloneFiles();
         $this->_exec('vendor/bin/codecept build');
     }
 
-    function allureGenerate() {
-        return $this->_exec('allure generate tests/_output/allure-results/ -o tests/_output/allure-report/');
+    /**
+     * Generate all Tests
+     */
+    function generateTests()
+    {
+        require 'tests/acceptance/_bootstrap.php';
+        \Magento\AcceptanceTestFramework\Util\TestGenerator::getInstance()->createAllCestFiles();
+        $this->say("Generate Tests Command Run");
     }
 
-    function allureOpen() {
-        $this->_exec('allure report open --report-dir tests/_output/allure-report/');
-    }
-
-    function allureReport() {
-        $result1 = $this->allureGenerate();
-
-        if ($result1->wasSuccessful()) {
-            $this->allureOpen();
-        }
-    }
-
-    function code(array $args) {
-        $this->_exec('codecept run ' . implode(' ', $args));
-        $this->allureReport();
-    }
-
-    function test() {
-        $this->chrome();
-        $this->allureReport();
-    }
-
-    function example() {
-        $this->_exec('codecept run --env chrome --group example --skip-group skip');
-        $this->allureReport();
-    }
-
-    function group($args = '') {
-        $this->taskExec('codecept run acceptance --verbose --steps --env chrome --skip-group skip --group')->args($args)->run();
-    }
-
-    function chrome() {
+    /**
+     * Run all Acceptance tests using the Chrome environment
+     */
+    function chrome()
+    {
         $this->_exec('codecept run acceptance --env chrome --skip-group skip');
         $this->allureReport();
     }
 
-    function generated() {
-        $this->_exec('codecept run acceptance --env chrome --skip-group skip --group generated');
-    }
-
-    function firefox() {
+    /**
+     * Run all Acceptance tests using the FireFox environment
+     */
+    function firefox()
+    {
         $this->_exec('codecept run acceptance --env firefox --skip-group skip');
         $this->allureReport();
     }
 
-    function phantomjs() {
-        $this->_exec('codecept run acceptance --env phantomjs');
-        $this->allureReport();
-    }
-
-    function catalog()
+    /**
+     * Run all Acceptance tests using the PhantomJS environment
+     */
+    function phantomjs()
     {
-        $this->_exec('codecept run --env chrome --group catalog');
+        $this->_exec('codecept run acceptance --env phantomjs --skip-group skip');
         $this->allureReport();
     }
 
+    /**
+     * Run all Tests with the specified @group tag, excluding @group 'skip', using the Chrome environment
+     */
+    function group($args = '')
+    {
+        $this->taskExec('codecept run acceptance --verbose --steps --env chrome --skip-group skip --group')->args($args)->run();
+    }
+
+    /**
+     * Run all Acceptance tests located under the Directory Path provided using the Chrome environment
+     */
     function folder($args = '')
     {
         $this->taskExec('codecept run acceptance --env chrome')->args($args)->run();
     }
 
-    function generateTests()
+    /**
+     * Run all Tests marked with the @group tag 'example', using the Chrome environment
+     */
+    function example()
     {
-        $this->_exec('cd vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util && php GenerateTestsFromObjects.php');
+        $this->_exec('codecept run --env chrome --group example --skip-group skip');
+        $this->allureReport();
     }
 
-    function watchSampleTest()
+    /**
+     * Generate the HTML for the Allure report based on the Test XML output
+     */
+    function allureGenerate()
     {
-        $this->taskWatch()
-             ->monitor('tests/acceptance/Magento/AcceptanceTest/SampleTests/Cest/SampleCest.xml', function () {
-                 $this->taskExec('robo generate:tests')->run();
-                 $this->say('Generator ran!');
-             })->run();
+        return $this->_exec('allure generate tests/_output/allure-results/ -o tests/_output/allure-report/');
     }
 
-    function watchGenerator()
+    /**
+     * Open the HTML Allure report
+     */
+    function allureOpen()
     {
-        $this->taskWatch()
-            ->monitor('vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Util/GenerateTestsFromObjects.php', function () {
-                $this->taskExec('robo generate:tests')->run();
-                $this->say('Generator ran!');
-            })->run();
+        $this->_exec('allure report open --report-dir tests/_output/allure-report/');
+    }
+
+    /**
+     * Generate and open the HTML Allure report
+     */
+    function allureReport()
+    {
+        $result1 = $this->allureGenerate();
+
+        if ($result1->wasSuccessful()) {
+            $this->allureOpen();
+        }
     }
 }

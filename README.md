@@ -1,138 +1,157 @@
-# Welcome to the example of Codeception + Robo + Allure!
+# Built With
+* [Codeception](http://codeception.com/)
+* [Robo](http://robo.li/)
+* [Allure](http://allure.qatools.ru/)
 
-### Prerequisites
-* **Codeception**, **Allure** and **Robo** are PHP based applications installed via **Composer**, so you will need to have **Composer** installed in order to run the following. Please visit the [Composer](https://getcomposer.org/) homepage for installation instructions.
-* Some settings need to be adjusted to meet the build environment settings in the appropriate `XXX.suite.yml` file in the `[PROJECT_ROOT]/tests/` directory: `[PROJECT_ROOT]/tests/XXXXXXX.suite.yml`
+----
 
-### Installation
-* Open a Terminal Window. CD to the Project Directory. Run the following command to install the project dependencies:
+# Prerequisites
+* [PHP v7.x](http://php.net/manual/en/install.php)
+* [Composer v1.4.x](https://getcomposer.org/download/)
+* [Allure CLI](https://docs.qameta.io/allure/latest/#_installing_a_commandline)
+* [GitHub](https://desktop.github.com/)
+* GitHub Repos:
+  * [CE Tests](https://github.com/magento-pangolin/magento2ce-acceptance-tests)
+  * [EE Tests](https://github.com/magento-pangolin/magento2ee-acceptance-tests)
+
+### Recommendations
+We recommend using [PHPStorm 2017](https://www.jetbrains.com/phpstorm/) for your IDE. They recently added support for [Codeception Test execution](https://blog.jetbrains.com/phpstorm/2017/03/codeception-support-comes-to-phpstorm-2017-1/) which is helpful when debugging.
+
+----
+
+# Installation
+You can **either** install through composer **or** clone from git repository.
+##Git
+  *
     ```
-    cd [LOCATION_OF_GITHUB_REPO]
+    git clone GITHUB_REPO_URL
+    cd magento2ce-acceptance-tests
     composer install
     ```
-
-### Configuration
-* In order to adjust the settings for the Framework you will need to copy the `.dist.` settings files and make your adjustments based on your unique Setup. These files are listed in the `.gitignore` file so they will only effect your Setup. You can run the following Robo command to copy the necassary files or follow the [Optional] instructions listed below.
+##Composer
+  * 
     ```
-    robo clone:files
-    ```
-
-* Configure the following `.env` variables according to the Magento application being tested.
-    ```
-    MAGENTO_BASE_URL=http://magento.loc/index.php
-    
-    MAGENTO_BACKEND_NAME=admin
-    MAGENTO_ADMIN_USERNAME=admin
-    MAGENTO_ADMIN_PASSWORD=123123q
-    
-    DB_DSN=''
-    DB_USERNAME=''
-    DB_PASSWORD=''
+    mkdir DIR_NAME
+    cd DIR_NAME
+    composer create-project --repository-url=GITHUB_REPO_URL magento/magento2ce-acceptance-tests-metapackage
     ```
 
-    * **[Optional]** Create .env file by copying existing .env.example file at project root directory.
+----
 
-        ```
-        cp .env.example .env
-        ```
+# Robo
+Robo is a task runner for PHP that allows you to alias long complex CLI commands to simple commands.
 
-    * **[Optional]** If you wish to customize entire test suite locally, you can create codeception.yml by copying existing codeception.dist.yml, and make change in codeception.yml.
-        ```
-        cp codeception.dist.yml codeception.yml
-        ```
+### Example
 
-    * **[Optional]** If you wish to customize acceptance test suite locally, you can create acceptance.suite.yml by copying existing acceptance.suite.dist.yml, and make change in acceptance.suite.yml.
-        ```
-        cp acceptance.suite.dist.yml acceptance.suite.yml
-        ```
+* Original: `allure generate tests/_output/allure-results/ -o tests/_output/allure-report/`
+* Robo: `robo allure:generate`
 
-### Running the Tests
-* Build the project:
-    ```
-    vendor/bin/codecept build
-    ```
-* Generate page objects:
-    ```
-    vendor/bin/robo generate:page-objects
-    ```
-    Page objects will be generated in **generated** folder under project root.
-    
-* **You will need to install Allure's CLI tool to generate the reports, please visit this page for instructions**: http://wiki.qatools.ru/display/AL/Allure+Commandline.
+## Available Robo Commands
+You can see a list of all available Robo commands by calling `robo` directly in the Terminal.
 
-* Next you will need to start a Selenium server so we can run the tests (This will vary based on your local setup).
+* `robo`
+  * Lists all available Robo commands.
+* `robo clone:files`
+  * Duplicate the Example configuration files used to customize the Project
+* `robo build:project`
+  * Build the Codeception project
+* `robo generate:pages`
+  * Generate all Page Objects
+* `robo generate:tests`
+  * Generate all Tests in PHP
+* `robo example`
+  * Run all Tests marked with the @group tag 'example', using the Chrome environment
+* `robo chrome`
+  * Run all Acceptance tests using the Chrome environment
+* `robo firefox`
+  * Run all Acceptance tests using the FireFox environment
+* `robo phantomjs`
+  * Run all Acceptance tests using the PhantomJS environment
+* `robo folder`
+  * Run all Acceptance tests located under the Directory Path provided using the Chrome environment
+* `robo group`
+  * Run all Tests with the specified @group tag, excluding @group 'skip', using the Chrome environment
+* `robo allure:generate`
+  * Generate the HTML for the Allure report based on the Test XML output
+* `robo allure:open`
+  * Open the HTML Allure report
+* `robo allure:report`
+  * Generate and open the HTML Allure report
 
-* Then open a New Terminal Window.
+----
 
-* Kick off the entire E2E Test Suite run the following command:
+# Building The Framework
+After installing the dependencies you will want to build the Codeception project in the [Acceptance Test Framework](https://github.com/magento-pangolin/magento2-acceptance-test-framework), which is a dependency of the CE or EE Tests repo. Run `robo build:project` to complete this task.
 
-    ```
-    robo test
-    ```
+`robo build:project`
 
-* To kick off some example tests with 2 test cases run the following command:
+----
 
-    ```
-    robo example
-    ```
+# Configuration
+The commands `robo setup`, `robo clone:files` or `robo build:project` will copy Example Configuration files that you can edit with out the fear of accidentally committing credentials or other information as these files are listed in the *.gitignore* file.
+In these files you will find key pieces of information that is unique to your Magento setup that will need to be edited (ex **MAGENTO_BASE_URL**, **MAGENTO_ADMIN_USERNAME**, **MAGENTO_ADMIN_PASSWORD**, etc...).
+* **tests/acceptance.suite.yml**
+* **codeception.dist.yml**
+* **.env**
 
-### Testing using Robo
+----
 
-* You can run the following test suites using robo:
+# Running Tests
+## Run Tests Manually
+You can run the Codeception tests directly without using Robo if you'd like. To do so please run `codecept run acceptance` to execute all Acceptance tests that DO NOT include @env tags. IF a Test includes an [@env tag](http://codeception.com/docs/07-AdvancedUsage#Environments) you MUST include the `--env ENV_NAME` flag.
 
-  * Run the tests marked with **@group chrome**:  `robo chrome`
-  * Run the tests marked with **@group firefox**:  `robo chrome`
-  * Run the tests marked with **@group phantomjs**:  `robo phantomjs`
+#### Common Codeception Flags:
 
-### Allure + Robo
-* You can generate an Allure report, open an Allure report or both using robo:
-  * Generate a report from **[PROJECT_ROOT]/tests/_output/allure-results/**: `robo allure:generate`
-  * Open a generate report from **[PROJECT_ROOT]/tests/_output/allure-report**: `robo allure:open`
-  * Generate a report and open it: `robo allure:report`
+* --env
+* --group
+* --skip-group
+* --steps
+* --verbose
+* --debug
+  * [Full List of CLI Flags](http://codeception.com/docs/reference/Commands#Run)
 
-### Testing Environments
-* You can run a subset of Tests by editing a command in the file `RoboFile.php` or by running `codecept` directly:
+#### Examples
 
-    ```codecept run --env chrome```
+* Run ALL Acceptance Tests without an @env tag: `codecept run acceptance`
+* Run ALL Acceptance Tests without the "skip" @group: `codecept run acceptance --skip-group skip`
+* Run ALL Acceptance Tests with the @group tag "example" without the "skip" @group tests: `codecept run acceptance --group example --skip-group skip`
 
-    ```codecept run --env firefox```
+## Run Tests using Robo
+* Run all Acceptance Tests using the @env tag "chrome": `robo chrome`
+* Run all Acceptance Tests using the @env tag "firefox": `robo firefox`
+* Run all Acceptance Tests using the @env tag "phantomjs": `robo phantomjs`
+* Run all Acceptance Tests using the @group tag "example": `robo example`
+* Run all Acceptance Tests using the provided @group tag: `robo group GROUP_NAME`
+* Run all Acceptance Tests listed under the provided Folder Path: `robo folder tests/acceptance/Magento/AcceptanceTest/MODULE_NAME`
 
-    ```codecept run --env phantomjs```
+----
 
-    ```codecept run --env chrome --group slow```
+# Allure Reports
+### Manually
+You can run the following commands in the Terminal to generate and open an Allure report.
 
-### Testing Groups
-* You can run or exclude subsets of Tests using the `--group` and `--skip-group` codeception flags in the Terminal (IF you add the `@env` tag to a Test you HAVE to include the `--env ZZZZ` flag in your `codecept` command):
-    * ```codecept run acceptance --env ZZZZ --group XXXX --skip-group YYYY```
-    ##### Base on operation, currently we have groups:
-        * *skip*
-        * *slow*
-        * *example*
-        * *sample*
-        * *admin-direct-access*
-        * *nav-menu-access*
-        * *sampleData*
-        * *nav-menu*
-        * *add*
-        * *update* 
-        * *fields*
-    ##### Base on Magento module, currently we have groups:
-        * *catalog*
-        * *configurable*
-        * *customer*
-        * *sales*
-        * *orders*
+* Build the Report: `allure generate tests/_output/allure-results/ -o tests/_output/allure-report/`
+* Open the Report: `allure report open --report-dir tests/_output/allure-report/`
 
-### RoboFile.php
+### Using Robo
+You can run the following Robo commands in the Terminal to generate and open an Allure report.
 
-* Edit the following command to change the Tests that the command `robo test` executes:
+* Build the Report: `robo allure:generate`
+* Open the Report: `robo allure:open`
+* Build/Open the Report: `robo allure:report`
 
-    ```
-    $this->_exec('codecept run --env chrome');
-    ```
+----
 
-### TROUBLESHOOTING
+# Composer SymLinking
+Due to the interdependent nature of the 2 repos it is recommended to Symlink the repos so you develop locally easier. Please refer to this GitHub page: https://github.com/gossi/composer-localdev-plugin
+
+----
+
+# Troubleshooting
 * TimeZone Error - http://stackoverflow.com/questions/18768276/codeception-datetime-error
 * TimeZone List - http://php.net/manual/en/timezones.america.php
 * System PATH - Make sure you have `vendor/bin/` and `vendor/` listed in your system path so you can run the  `codecept` and `robo` commands directly:
 
     `sudo nano /etc/private/paths`
+    
+    * StackOverflow Help: https://stackoverflow.com/questions/7703041/editing-path-variable-on-mac

@@ -2,29 +2,26 @@
 <!-- Test XML Example -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
-    <cest name="SampleCest">
+    <cest name="SampleGeneratorCest">
         <annotations>
-            <features value="Minimum Test1"/>
-            <features value="Minimum Test2"/>
-            <stories value="Minimum Test1"/>
-            <stories value="Minimum Test2"/>
-            <group value="generated"/>
-            <group value="example"/>
+            <features value="Test Generator with Codeception commands"/>
+            <features value="Test Generator with Custom commands"/>
+            <stories value="Verify each Codeception command is generated correctly."/>
+            <stories value="Verify each Custom command is generated correctly."/>
             <group value="skip"/>
-            <env value="chrome"/>
-            <env value="firefox"/>
-            <env value="phantomjs"/>
         </annotations>
         <before>
             <amOnUrl url="http://127.0.0.1:32772/admin/" mergeKey="amOnPage"/>
+            <createData entity="CustomerEntity1" mergeKey="createData1"/>
         </before>
         <after>
             <amOnUrl url="http://127.0.0.1:32772/admin/admin/auth/logout" mergeKey="amOnPage"/>
+            <deleteData createDataKey="createData1" mergeKey="deleteData1"/>
         </after>
-        <test name="AllFieldsTest">
+        <test name="AllCodeceptionMethodsTest">
             <annotations>
-                <title value="Generator Testing"/>
-                <description value="Exercises the Generator to make sure it creates everything correctly."/>
+                <title value="Create all Codeception methods"/>
+                <description value="Exercises the Generator to make sure it creates every Codeception method correctly."/>
                 <severity value="CRITICAL"/>
                 <testCaseId value="#"/>
             </annotations>
@@ -47,6 +44,8 @@
             <clickWithRightButton selectorArray="['css' => '.checkout']" mergeKey="clickWithRightButton2" x="23" y="324"/>
             <clickWithRightButton mergeKey="clickWithRightButton3" x="23" y="324"/>
             <closeTab mergeKey="closeTab"/>
+            <createData entity="CustomerEntity1" mergeKey="createData1"/>
+            <deleteData createDataKey="createData1" mergeKey="deleteData1"/>
             <dontSee userInput="Text" mergeKey="dontSee1"/>
             <dontSee userInput="Text" selector=".title" mergeKey="dontSee2"/>
             <dontSee userInput="Text" selectorArray="['css' => 'body h1']" mergeKey="dontSee3"/>
@@ -164,6 +163,31 @@
             <waitForJS function="return $.active == 0;" time="30" mergeKey="waitForJS"/>
             <waitForText userInput="foo" time="30" mergeKey="waitForText1"/>
             <waitForText userInput="foo" selector=".title" time="30" mergeKey="waitForText2"/>
+        </test>
+        <test name="AllCustomMethodsTest">
+            <annotations>
+                <title value="Create all Custom methods"/>
+                <description value="Exercises the Generator to make sure it creates every Custom method correctly."/>
+                <severity value="CRITICAL"/>
+                <testCaseId value="#"/>
+            </annotations>
+            <loginAsAdmin mergeKey="loginAsAdmin1"/>
+            <loginAsAdmin username="admin" password="123123q" mergeKey="loginAsAdmin2"/>
+            <closeAdminNotification mergeKey="closeAdminNotification1"/>
+            <searchAndMultiSelectOption selector="#stuff" parameterArray="['Item 1', 'Item 2']" mergeKey="searchAndMultiSelect1"/>
+            <searchAndMultiSelectOption selector="#stuff" parameterArray="['Item 1', 'Item 2']" requiredAction="true" mergeKey="searchAndMultiSelect2"/>
+            <waitForPageLoad mergeKey="waitForPageLoad1"/>
+            <waitForPageLoad time="15" mergeKey="waitForPageLoad2"/>
+            <waitForAjaxLoad mergeKey="waitForAjax1"/>
+            <waitForAjaxLoad time="15" mergeKey="waitForAjax2"/>
+            <dontSeeJsError mergeKey="dontSeeJsError"/>
+            <formatMoney userInput="$300,000" mergeKey="formatMoney1"/>
+            <formatMoney userInput="$300,000" locale="en_US.UTF-8" mergeKey="formatMoney2"/>
+            <mSetLocale userInput="300" locale="en_US.UTF-8" mergeKey="mSetLocale1"/>
+            <mResetLocale mergeKey="mResetLocale1"/>
+            <waitForLoadingMaskToDisappear mergeKey="waitForLoadingMaskToDisappear1"/>
+            <scrollToTopOfPage mergeKey="scrollToTopOfPage"/>
+            <parseFloat userInput="300,000.2325" mergeKey="parseFloat1"/>
         </test>
     </cest>
 </config>

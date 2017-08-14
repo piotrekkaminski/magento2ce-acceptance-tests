@@ -2,18 +2,24 @@
     "name": "magento/magento2ce-acceptance-tests",
     "type": "library",
     "description": "Magento 2 (Community Edition) Acceptance Tests",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/magento-pangolin/magento2-acceptance-test-framework"
-        }
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
     ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/magento-pangolin/magento2-acceptance-test-framework"
+    }
+  ],
     "require": {
         "php": "~7.0",
-        "magento/magento2-acceptance-test-framework": "dev-develop",
+        "codeception/codeception": "2.2|2.3",
         "allure-framework/allure-codeception": "dev-master",
         "consolidation/robo": "^1.0.0",
-        "henrikbjorn/lurker": "^1.2"
+        "henrikbjorn/lurker": "^1.2",
+        "vlucas/phpdotenv": "~2.4",
+        "magento/magento2-acceptance-test-framework": "dev-develop"
     },
     "autoload": {
         "psr-0": {
