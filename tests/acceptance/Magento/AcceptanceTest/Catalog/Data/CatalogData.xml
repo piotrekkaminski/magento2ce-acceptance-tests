@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/DataProfileSchema.xsd">
-    <entity name="AdminCreateSimpleProductCestCategory" type="category">
-        <data key="name">AdminCreateSimpleProductCestCategory</data>
+        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/dataProfileSchema.xsd">
+    <entity name="_defaultCategory" type="category">
+        <data key="name">simpleProductCategory</data>
+        <data key="name_lwr">simpleproductcategory</data>
         <data key="is_active">true</data>
     </entity>
-    <entity name="AdminCreateSimpleProductCestProduct" type="product">
-        <data key="sku">AdminCreateSimpleProductSku</data>
-        <data key="name">AdminCreateSimpleProductCestProduct</data>
+    <entity name="_defaultProduct" type="product">
+        <data key="sku">testSku</data>
+        <data key="name">testProductName</data>
         <data key="price">1,234.00</data>
-        <data key="urlKey">admincreatesimpleproducturlkey</data>
+        <data key="urlKey">testurlkey</data>
         <data key="quantity">100</data>
-        <data key="catUrlKey">admincreatesimpleproductcestcategory</data>
     </entity>
 </config>
