@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
+    <section name="GuestCheckoutPaymentSection">
+        <element name="cartItems" type="text" locator=".minicart-items"/>
+        <element name="billingAddress" type="text" locator="div.billing-address-details"/>
+        <element name="placeOrder" type="button" locator="button.action.primary.checkout"/>
+    </section>
+</config>

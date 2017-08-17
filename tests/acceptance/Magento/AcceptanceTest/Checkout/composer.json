@@ -14,16 +14,16 @@
         "consolidation/robo": "^1.0.0",
         "henrikbjorn/lurker": "^1.2",
         "vlucas/phpdotenv": "~2.4",
-        "magento/magento2-acceptance-test-framework": "dev-develop"
+        "magento/magento2-acceptance-test-framework": "dev-develop",
+        "magento/magento2-acceptance-test-module-catalog": "dev-master",
+        "magento/magento2-acceptance-test-module-sales": "dev-master"
     },
     "suggest": {
         "magento/magento2-acceptance-test-module-store": "dev-master",
-        "magento/magento2-acceptance-test-module-sales": "dev-master",
         "magento/magento2-acceptance-test-module-backend": "dev-master",
         "magento/magento2-acceptance-test-module-catalog-inventory": "dev-master",
         "magento/magento2-acceptance-test-module-config": "dev-master",
         "magento/magento2-acceptance-test-module-customer": "dev-master",
-        "magento/magento2-acceptance-test-module-catalog": "dev-master",
         "magento/magento2-acceptance-test-module-payment": "dev-master",
         "magento/magento2-acceptance-test-module-shipping": "dev-master",
         "magento/magento2-acceptance-test-module-tax": "dev-master",

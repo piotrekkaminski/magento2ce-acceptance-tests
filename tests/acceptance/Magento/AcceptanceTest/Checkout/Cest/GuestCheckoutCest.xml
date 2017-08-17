@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+    <cest name="GuestCheckoutCest">
+        <annotations>
+            <severity value="CRITICAL"/>
+            <testCaseId value="#"/>
+            <group value="catalog"/>
+            <env value="chrome"/>
+            <env value="firefox"/>
+            <env value="phantomjs"/>
+        </annotations>
+        <before>
+            <createData entity="_defaultCategory" mergeKey="createCategory"/>
+            <!-- todo look at swagger, create the JSON metadata, and associated stuff -->
+            <!--<createData entity="ProductOne" mergeKey="createProduct"/>-->
+        </before>
+        <after>
+            <deleteData createDataKey="createCategory" mergeKey="deleteCategory"/>
+            <!--<deleteData createDataKey="createProduct" mergeKey="deleteProduct"/>-->
+        </after>
+        <test name="GuestCheckout">
+            <annotations>
+                <title value="Guest Checkout"/>
+                <description value="Should be able to place an order as a guest."/>
+            </annotations>
+            <amOnPage url="/{{_defaultCategory.name_lwr}}.html" mergeKey="onCategoryPage"/>
+            <moveMouseOver selector="{{_defaultProduct.name}}" mergeKey="hoverProduct"/>
+            <click selector="{{StorefrontCategoryMainSection.AddToCartBtn}}" mergeKey="addToCart"/>
+            <see selector="{{StorefrontCategoryMainSection.SuccessMsg}}" userInput="You added {{_defaultProduct.name}} to your shopping cart." mergeKey="seeAddedToCartMessage"/>
+            <see selector="{{StorefrontMiniCartSection.quantity}}" userInput="1" mergeKey="seeCartQuantity"/>
+            <click selector="{{StorefrontMiniCartSection.show}}" mergeKey="clickCart"/>
+            <click selector="{{StorefrontMiniCartSection.goToCheckout}}" mergeKey="goToCheckout"/>
+            <fillField selector="{{GuestCheckoutShippingSection.email}}" userInput="{{CustomerEntityOne.email}}" mergeKey="enterEmail"/>
+            <fillField selector="{{GuestCheckoutShippingSection.firstName}}" userInput="{{CustomerEntityOne.firstname}}" mergeKey="enterFirstName"/>
+            <fillField selector="{{GuestCheckoutShippingSection.lastName}}" userInput="{{CustomerEntityOne.lastname}}" mergeKey="enterLastName"/>
+            <!-- todo reference CustomerAddressSimple.street[0] -->
+            <fillField selector="{{GuestCheckoutShippingSection.street}}" userInput="123 Test St" mergeKey="enterStreet"/>
+            <fillField selector="{{GuestCheckoutShippingSection.city}}" userInput="{{CustomerAddressSimple.city}}" mergeKey="enterCity"/>
+            <selectOption selector="{{GuestCheckoutShippingSection.region}}" userInput="{{CustomerAddressSimple.state}}" mergeKey="selectRegion"/>
+            <fillField selector="{{GuestCheckoutShippingSection.postcode}}" userInput="{{CustomerAddressSimple.postcode}}" mergeKey="enterPostcode"/>
+            <fillField selector="{{GuestCheckoutShippingSection.telephone}}" userInput="{{CustomerAddressSimple.telephone}}" mergeKey="enterTelephone"/>
+            <click selector="{{GuestCheckoutShippingSection.next}}" mergeKey="clickNext"/>
+            <see selector="{{GuestCheckoutPaymentSection.cartItems}}" userInput="{{_defaultProduct.name}}" mergeKey="seeProductInCart"/>
+            <!-- todo reference CustomerAddressSimple.street[0] -->
+            <see selector="{{GuestCheckoutPaymentSection.billingAddress}}" userInput="123 Test St" mergeKey="seeAddress"/>
+            <click selector="{{GuestCheckoutPaymentSection.placeOrder}}" mergeKey="clickPlaceOrder"/>
+            <!-- todo reference an order number variable -->
+            <see selector="{{CheckoutSuccessMainSection.success}}" userInput="Your order # is: 000000001" mergeKey="seeOrderNumber"/>
+            <see selector="{{CheckoutSuccessMainSection.success}}" userInput="We'll email you an order confirmation with details and tracking info." mergeKey="seeEmailYou"/>
+            <amOnPage url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
+            <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillUsername"/>
+            <fillField selector="{{AdminLoginFormSection.password}}" userInput="admin123" mergeKey="fillPassword"/>
+            <click selector="{{AdminLoginFormSection.signIn}}" mergeKey="clickLogin"/>
+            <amOnPage url="{{OrdersPage}}" mergeKey="onOrdersPage"/>
+            <!-- todo reference an order number variable -->
+            <fillField selector="{{OrdersGridSection.search}}" userInput="000000001" mergeKey="searchOrderNum"/>
+            <pressKey selector="{{OrdersGridSection.search}}" userInput="enter" mergeKey="submitSearch"/>
+            <click selector="{{OrdersGridSection.firstRow}}" mergeKey="clickOrderRow"/>
+            <see selector="{{OrderDetailsInformationSection.orderStatus}}" userInput="Processing" mergeKey="seeAdminOrderStatus"/>
+            <see selector="{{OrderDetailsInformationSection.accountInformation}}" userInput="{{CustomerEntityOne.firstname}} {{CustomerEntityOne.lastname}}" mergeKey="seeAdminOrderCustomerName"/>
+            <see selector="{{OrderDetailsInformationSection.accountInformation}}" userInput="{{CustomerEntityOne.email}}" mergeKey="seeAdminOrderEmail"/>
+            <!-- todo reference CustomerAddressSimple.street[0] -->
+            <see selector="{{OrderDetailsInformationSection.billingAddress}}" userInput="123 Test St" mergeKey="seeAdminOrderBillingAddress"/>
+            <!-- todo reference CustomerAddressSimple.street[0] -->
+            <see selector="{{OrderDetailsInformationSection.shippingAddress}}" userInput="123 Test St" mergeKey="seeAdminOrderShippingAddress"/>
+            <see selector="{{OrderDetailsInformationSection.itemsOrdered}}" userInput="{{_defaultProduct.name}}" mergeKey="seeAdminOrderProduct"/>
+        </test>
+    </cest>
+</config>
