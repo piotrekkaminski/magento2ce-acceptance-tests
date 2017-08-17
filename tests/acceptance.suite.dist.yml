@@ -17,7 +17,7 @@ modules:
             password: "%MAGENTO_ADMIN_PASSWORD%"
             depends: PhpBrowser
             part: Json
-        - Sequence
+        - \Magento\AcceptanceTestFramework\Module\MagentoSequence
         - Asserts
     config:
         \Magento\AcceptanceTestFramework\Module\MagentoWebDriver:
