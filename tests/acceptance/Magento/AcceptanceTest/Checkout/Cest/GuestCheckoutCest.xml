@@ -34,16 +34,14 @@
             <fillField selector="{{GuestCheckoutShippingSection.email}}" userInput="{{CustomerEntityOne.email}}" mergeKey="enterEmail"/>
             <fillField selector="{{GuestCheckoutShippingSection.firstName}}" userInput="{{CustomerEntityOne.firstname}}" mergeKey="enterFirstName"/>
             <fillField selector="{{GuestCheckoutShippingSection.lastName}}" userInput="{{CustomerEntityOne.lastname}}" mergeKey="enterLastName"/>
-            <!-- todo reference CustomerAddressSimple.street[0] -->
-            <fillField selector="{{GuestCheckoutShippingSection.street}}" userInput="123 Test St" mergeKey="enterStreet"/>
+            <fillField selector="{{GuestCheckoutShippingSection.street}}" userInput="{{CustomerAddressSimple.street[0]}}" mergeKey="enterStreet"/>
             <fillField selector="{{GuestCheckoutShippingSection.city}}" userInput="{{CustomerAddressSimple.city}}" mergeKey="enterCity"/>
             <selectOption selector="{{GuestCheckoutShippingSection.region}}" userInput="{{CustomerAddressSimple.state}}" mergeKey="selectRegion"/>
             <fillField selector="{{GuestCheckoutShippingSection.postcode}}" userInput="{{CustomerAddressSimple.postcode}}" mergeKey="enterPostcode"/>
             <fillField selector="{{GuestCheckoutShippingSection.telephone}}" userInput="{{CustomerAddressSimple.telephone}}" mergeKey="enterTelephone"/>
             <click selector="{{GuestCheckoutShippingSection.next}}" mergeKey="clickNext"/>
             <see selector="{{GuestCheckoutPaymentSection.cartItems}}" userInput="{{_defaultProduct.name}}" mergeKey="seeProductInCart"/>
-            <!-- todo reference CustomerAddressSimple.street[0] -->
-            <see selector="{{GuestCheckoutPaymentSection.billingAddress}}" userInput="123 Test St" mergeKey="seeAddress"/>
+            <see selector="{{GuestCheckoutPaymentSection.billingAddress}}" userInput="{{CustomerAddressSimple.street[0]}}" mergeKey="seeAddress"/>
             <click selector="{{GuestCheckoutPaymentSection.placeOrder}}" mergeKey="clickPlaceOrder"/>
             <!-- todo reference an order number variable -->
             <see selector="{{CheckoutSuccessMainSection.success}}" userInput="Your order # is: 000000001" mergeKey="seeOrderNumber"/>
@@ -60,10 +58,8 @@
             <see selector="{{OrderDetailsInformationSection.orderStatus}}" userInput="Processing" mergeKey="seeAdminOrderStatus"/>
             <see selector="{{OrderDetailsInformationSection.accountInformation}}" userInput="{{CustomerEntityOne.firstname}} {{CustomerEntityOne.lastname}}" mergeKey="seeAdminOrderCustomerName"/>
             <see selector="{{OrderDetailsInformationSection.accountInformation}}" userInput="{{CustomerEntityOne.email}}" mergeKey="seeAdminOrderEmail"/>
-            <!-- todo reference CustomerAddressSimple.street[0] -->
-            <see selector="{{OrderDetailsInformationSection.billingAddress}}" userInput="123 Test St" mergeKey="seeAdminOrderBillingAddress"/>
-            <!-- todo reference CustomerAddressSimple.street[0] -->
-            <see selector="{{OrderDetailsInformationSection.shippingAddress}}" userInput="123 Test St" mergeKey="seeAdminOrderShippingAddress"/>
+            <see selector="{{OrderDetailsInformationSection.billingAddress}}" userInput="{{CustomerAddressSimple.street[0]}}" mergeKey="seeAdminOrderBillingAddress"/>
+            <see selector="{{OrderDetailsInformationSection.shippingAddress}}" userInput="{{CustomerAddressSimple.street[0]}}" mergeKey="seeAdminOrderShippingAddress"/>
             <see selector="{{OrderDetailsInformationSection.itemsOrdered}}" userInput="{{_defaultProduct.name}}" mergeKey="seeAdminOrderProduct"/>
         </test>
     </cest>
