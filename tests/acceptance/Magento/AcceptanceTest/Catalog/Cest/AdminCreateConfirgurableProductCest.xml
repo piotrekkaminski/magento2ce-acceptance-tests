@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test XML Example -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+    <cest name="AdminCreateConfigurableProductCest">
+        <annotations>
+            <features value="Product Creation"/>
+            <stories value="Create a Configurable Product"/>
+            <group value="configurable"/>
+            <group value="product"/>
+            <env value="chrome"/>
+            <env value="firefox"/>
+            <env value="phantomjs"/>
+        </annotations>
+        <before>
+            <loginAsAdmin mergeKey="loginAsAdmin1"/>
+        </before>
+        <test name="CreateConfigurableProductViaAdmin">
+            <annotations>
+                <title value="Create a Configurable Product via the Admin."/>
+                <description value="YOu should be able to create a Configurable Product via the Admin."/>
+                <severity value="CRITICAL"/>
+                <testCaseId value="#"/>
+            </annotations>
+
+            <amOnPage url="{{AdminCategoryPage.urlPath}}" mergeKey="amOnCategoryPage"/>
+            <waitForPageLoad mergeKey="waitForPageLoad1"/>
+            <click selector="{{AdminCategorySidebarActionSection.AddSubcategoryButton}}" mergeKey="addSubcategory"/>
+            <fillField selector="{{AdminCategoryBasicFieldSection.CategoryNameInput}}" userInput="{{AdminCreateSimpleProductCestCategory.name}}" mergeKey="fillCategoryName"/>
+            <click selector="{{AdminCategorySEOSection.SectionHeader}}" mergeKey="openSEO"/>
+            <fillField selector="{{AdminCategorySEOSection.UrlKeyInput}}" userInput="{{AdminCreateSimpleProductCestCategory.name_lwr}}" mergeKey="fillURLKey"/>
+            <click selector="{{AdminCategoryMainActionsSection.SaveButton}}" mergeKey="saveCategory"/>
+            <seeElement selector="{{AdminCategoryMessagesSection.SuccessMessage}}" mergeKey="assertSuccess"/>
+
+            <amOnPage url="{{AdminProductIndexPage.urlPath}}" mergeKey="amOnPage1"/>
+            <click selector="{{AdminProductGridActionSection.addProductToggle}}" mergeKey="click1"/>
+            <click selector="{{AdminProductGridActionSection.addConfigurableProduct}}" mergeKey="click2"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="fillName" selector="{{AdminProductFormSection.productName}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="fillSKU" selector="{{AdminProductFormSection.productSku}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.price}}" mergeKey="fillPrice" selector="{{AdminProductFormSection.productPrice}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.quantity}}" mergeKey="fillQuantity" selector="{{AdminProductFormSection.productQuantity}}"/>
+            <searchAndMultiSelectOption selector="{{AdminProductFormSection.categoriesDropdown}}" userInput="{{AdminCreateSimpleProductCestCategory.name}}" mergeKey="searchAndSelectCategory"/>
+            <click mergeKey="openSeoSection" selector="{{AdminProductSEOSection.sectionHeader}}"/>
+            <fillField userInput="{{AdminCreateSimpleProductCestProduct.urlKey}}" mergeKey="fillUrlKey" selector="{{AdminProductSEOSection.urlKeyInput}}"/>
+            <click selector="{{AdminProductFormConfigurationsSection.createConfigurations}}" mergeKey="click3"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.createNewAttribute}}" mergeKey="click4"/>
+            <switchToIFrame selector="{{AdminNewAttributePanel.newAttributeIFrame}}" mergeKey="switchToIFrame1"/>
+            <fillField selector="{{AdminNewAttributePanel.defaultLabel}}" userInput="Color" mergeKey="fillDefaultLabel"/>
+            <click selector="{{AdminNewAttributePanel.saveAttribute}}" mergeKey="clickOn"/>
+            <switchToIFrame mergeKey="switchToIFrame2"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.filters}}" mergeKey="clickOnStuff"/>
+            <fillField userInput="Color" selector="{{AdminCreateProductConfigurationsPanel.attributeCode}}" mergeKey="fillFilterField"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.applyFilters}}" mergeKey="clickApplyFiltersButton"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.firstCheckbox}}" mergeKey="clickOnFirstCheckbox"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.next}}" mergeKey="clickOnNextButton1"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.createNewValue}}" mergeKey="clickOnCreateNewValue1"/>
+            <fillField userInput="White" selector="{{AdminCreateProductConfigurationsPanel.attributeName}}" mergeKey="fillFieldForNewAttribute1"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.saveAttribute}}" mergeKey="clickOnSaveNewAttribute1"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.createNewValue}}" mergeKey="clickOnCreateNewValue2"/>
+            <fillField userInput="Blue" selector="{{AdminCreateProductConfigurationsPanel.attributeName}}" mergeKey="fillFieldForNewAttribute2"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.saveAttribute}}" mergeKey="clickOnSaveNewAttribute2"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.createNewValue}}" mergeKey="clickOnCreateNewValue3"/>
+            <fillField userInput="Red" selector="{{AdminCreateProductConfigurationsPanel.attributeName}}" mergeKey="fillFieldForNewAttribute3"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.saveAttribute}}" mergeKey="clickOnSaveNewAttribute3"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.selectAll}}" mergeKey="clickOnSelectAll"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.next}}" mergeKey="clickOnNextButton2"/>
+
+            <click selector="{{AdminCreateProductConfigurationsPanel.applyUniquePricesByAttributeToEachSku}}" mergeKey="clickOnApplyUniquePricesByAttributeToEachSku"/>
+            <selectOption selector="{{AdminCreateProductConfigurationsPanel.selectAttribute}}" userInput="Color" mergeKey="selectAttribute"/>
+            <fillField selector="{{AdminCreateProductConfigurationsPanel.attribute1}}" userInput="1" mergeKey="fillAttribute1"/>
+            <fillField selector="{{AdminCreateProductConfigurationsPanel.attribute2}}" userInput="2" mergeKey="fillAttribute2"/>
+            <fillField selector="{{AdminCreateProductConfigurationsPanel.attribute3}}" userInput="3" mergeKey="fillAttribute3"/>
+
+            <click selector="{{AdminCreateProductConfigurationsPanel.applySingleQuantityToEachSkus}}" mergeKey="clickOnApplySingleQuantityToEachSkus"/>
+            <fillField selector="{{AdminCreateProductConfigurationsPanel.quantity}}" userInput="1" mergeKey="enterQuantity"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.next}}" mergeKey="clickOnNextButton3"/>
+            <click selector="{{AdminCreateProductConfigurationsPanel.next}}" mergeKey="clickOnNextButton4"/>
+
+            <click selector="{{AdminProductFormActionSection.saveButton}}" mergeKey="clickOnSaveButton2"/>
+            <click selector="{{AdminChooseAffectedAttributeSetPopup.confirm}}" mergeKey="clickOnConfirm"/>
+
+            <seeElement selector="{{AdminProductMessagesSection.successMessage}}" mergeKey="seeSaveProductMessage"/>
+            <seeInTitle userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="seeProductNameInTitle"/>
+
+            <seeNumberOfElements selector="{{AdminProductFormConfigurationsSection.currentVariationsRows}}" userInput="3" mergeKey="seeNumberOfRows"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsNameCells}}" userInput="White" mergeKey="seeAttributeName1InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsNameCells}}" userInput="Blue" mergeKey="seeAttributeName2InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsNameCells}}" userInput="Red" mergeKey="seeAttributeName3InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsSkuCells}}" userInput="White" mergeKey="seeAttributeSku1InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsSkuCells}}" userInput="Blue" mergeKey="seeAttributeSku2InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsSkuCells}}" userInput="Red" mergeKey="seeAttributeSku3InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsPriceCells}}" userInput="1.00" mergeKey="seeUniquePrice1InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsPriceCells}}" userInput="2.00" mergeKey="seeUniquePrice2InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsPriceCells}}" userInput="3.00" mergeKey="seeUniquePrice3InField"/>
+            <see selector="{{AdminProductFormConfigurationsSection.currentVariationsQuantityCells}}" userInput="1" mergeKey="seeQuantityInField"/>
+
+            <amOnPage url="/" mergeKey="amOnStorefront"/>
+            <waitForPageLoad mergeKey="waitForPageLoad4"/>
+            <click userInput="{{AdminCreateSimpleProductCestCategory.name}}" mergeKey="clickOnCategoryName"/>
+            <waitForPageLoad mergeKey="waitForPageLoad6"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductPresent"/>
+            <see userInput="1.00" mergeKey="assertProductPricePresent"/>
+            <click userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="clickOnProductName"/>
+            <waitForPageLoad mergeKey="waitForPageLoad7"/>
+            <seeInTitle userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductNameTitle"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.name}}" mergeKey="assertProductName" selector="{{StorefrontProductInfoMainSection.productName}}"/>
+            <see userInput="1.00" mergeKey="assertProductPrice" selector="{{StorefrontProductInfoMainSection.productPrice}}"/>
+            <see userInput="{{AdminCreateSimpleProductCestProduct.sku}}" mergeKey="assertProductSku" selector="{{StorefrontProductInfoMainSection.productSku}}"/>
+
+            <see selector="{{StorefrontProductInfoMainSection.productAttributeTitle1}}" userInput="Color" mergeKey="seeColorAttributeName1"/>
+            <see selector="{{StorefrontProductInfoMainSection.productAttributeOptions1}}" userInput="White" mergeKey="seeInDropDown1"/>
+            <see selector="{{StorefrontProductInfoMainSection.productAttributeOptions1}}" userInput="Blue" mergeKey="seeInDropDown2"/>
+            <see selector="{{StorefrontProductInfoMainSection.productAttributeOptions1}}" userInput="Red" mergeKey="seeInDropDown3"/>
+        </test>
+    </cest>
+</config>
