@@ -5,7 +5,7 @@
         <annotations>
             <severity value="CRITICAL"/>
             <testCaseId value="#"/>
-            <group value="catalog"/>
+            <group value="checkout"/>
             <env value="chrome"/>
             <env value="firefox"/>
             <env value="phantomjs"/>
@@ -19,7 +19,7 @@
             <deleteData createDataKey="createCategory" mergeKey="deleteCategory"/>
             <!--<deleteData createDataKey="createProduct" mergeKey="deleteProduct"/>-->
         </after>
-        <test name="GuestCheckout">
+        <test name="GuestCheckoutTest">
             <annotations>
                 <title value="Guest Checkout"/>
                 <description value="Should be able to place an order as a guest."/>
