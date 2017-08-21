@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/SectionObject.xsd">
+    <section name="AdminCustomerMainActionsSection">
+        <element name="addNewCustomer" type="button" locator=".page-actions-buttons #add" timeOut="10"/>
+    </section>
+</config>

@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/SectionObject.xsd">
+    <section name="AdminCustomerMessagesSection">
+        <element name="successMessage" type="text" locator=".message-success"/>
+    </section>
+</config>

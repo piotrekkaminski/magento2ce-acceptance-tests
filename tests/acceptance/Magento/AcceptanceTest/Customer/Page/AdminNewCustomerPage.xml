@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/PageObject.xsd">
+    <page name="AdminNewCustomerPage" urlPath="/admin/customer/index/new" module="Customer">
+        <section name="AdminNewCustomerAccountInformationSection"/>
+        <section name="AdminNewCustomerMainActionsSection"/>
+    </page>
+</config>

@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/SectionObject.xsd">
+    <section name="AdminNewCustomerAccountInformationSection">
+        <element name="firstName" type="input" locator="input[name='customer[firstname]']"/>
+        <element name="lastName" type="input" locator="input[name='customer[lastname]']"/>
+        <element name="email" type="input" locator="input[name='customer[email]']"/>
+    </section>
+</config>
