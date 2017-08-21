@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/dataOperation.xsd">
+    <operation name="createProduct" dataType="product" type="create" auth="/rest/V1/integration/admin/token" url="/rest/V1/product" method="POST">
+        <header param="Content-Type">application/json</header>
+        <entry key="id">integer</entry>
+        <entry key="sku">string</entry>
+        <entry key="name">string</entry>
+        <entry key="price">integer</entry>
+        <entry key="status">integer</entry>
+        <entry key="visibility">integer</entry>
+        <entry key="createdAt">string</entry>
+        <entry key="updatedAt">string</entry>
+        <array key="customAttributes">customAttribute</array>
+    </operation>
+
+    <operation name="deleteProduct" dataType="product" type="delete" auth="/rest/V1/integration/admin/token" url="/rest/V1/product" method="DELETE">
+        <header param="Content-Type">application/json</header>
+        <param key="id" type="path">{sku}</param>
+    </operation>
+</config>
