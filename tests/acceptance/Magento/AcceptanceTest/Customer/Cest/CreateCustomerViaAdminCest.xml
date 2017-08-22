@@ -28,8 +28,12 @@
             <fillField userInput="{{CustomerEntityOne.lastname}}" selector="{{AdminNewCustomerAccountInformationSection.lastName}}" mergeKey="fillLastName"/>
             <fillField userInput="{{CustomerEntityOne.email}}" selector="{{AdminNewCustomerAccountInformationSection.email}}" mergeKey="fillEmail"/>
             <click mergeKey="saveCustomer" selector="{{AdminNewCustomerMainActionsSection.saveButton}}"/>
-            <waitForElementNotVisible selector="div [data-role='spinner']" time="10" mergeKey="waitForSpinner"/>
+            <waitForElementNotVisible selector="div [data-role='spinner']" time="10" mergeKey="waitForSpinner1"/>
             <seeElement mergeKey="assertSuccessMessage" selector="{{AdminCustomerMessagesSection.successMessage}}"/>
+            <click mergeKey="openFilter" selector="{{AdminCustomerFiltersSection.filtersButton}}"/>
+            <fillField userInput="{{CustomerEntityOne.firstname}}" mergeKey="filterFirstName"/>
+            <click mergeKey="applyFilter" selector="{{AdminCustomerFiltersSection.apply}}"/>
+            <waitForElementNotVisible selector="div [data-role='spinner']" time="10" mergeKey="waitForSpinner2"/>
             <see userInput="{{CustomerEntityOne.firstname}}" selector="{{AdminCustomerGridSection.customerGrid}}" mergeKey="assertFirstName"/>
             <see userInput="{{CustomerEntityOne.lastname}}" selector="{{AdminCustomerGridSection.customerGrid}}" mergeKey="assertLastName"/>
             <see userInput="{{CustomerEntityOne.email}}" selector="{{AdminCustomerGridSection.customerGrid}}" mergeKey="assertEmail"/>
