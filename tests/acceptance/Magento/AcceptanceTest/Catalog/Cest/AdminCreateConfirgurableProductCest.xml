@@ -17,9 +17,9 @@
         <test name="CreateConfigurableProductViaAdmin">
             <annotations>
                 <title value="Create a Configurable Product via the Admin."/>
-                <description value="YOu should be able to create a Configurable Product via the Admin."/>
+                <description value="You should be able to create a Configurable Product via the Admin."/>
                 <severity value="CRITICAL"/>
-                <testCaseId value="#"/>
+                <testCaseId value="MAGETWO-26041"/>
             </annotations>
 
             <amOnPage url="{{AdminCategoryPage.urlPath}}" mergeKey="amOnCategoryPage"/>
@@ -41,11 +41,13 @@
             <searchAndMultiSelectOption selector="{{AdminProductFormSection.categoriesDropdown}}" userInput="{{AdminCreateSimpleProductCestCategory.name}}" mergeKey="searchAndSelectCategory"/>
             <click mergeKey="openSeoSection" selector="{{AdminProductSEOSection.sectionHeader}}"/>
             <fillField userInput="{{AdminCreateSimpleProductCestProduct.urlKey}}" mergeKey="fillUrlKey" selector="{{AdminProductSEOSection.urlKeyInput}}"/>
+
             <click selector="{{AdminProductFormConfigurationsSection.createConfigurations}}" mergeKey="click3"/>
             <click selector="{{AdminCreateProductConfigurationsPanel.createNewAttribute}}" mergeKey="click4"/>
             <switchToIFrame selector="{{AdminNewAttributePanel.newAttributeIFrame}}" mergeKey="switchToIFrame1"/>
             <fillField selector="{{AdminNewAttributePanel.defaultLabel}}" userInput="Color" mergeKey="fillDefaultLabel"/>
             <click selector="{{AdminNewAttributePanel.saveAttribute}}" mergeKey="clickOn"/>
+
             <switchToIFrame mergeKey="switchToIFrame2"/>
             <click selector="{{AdminCreateProductConfigurationsPanel.filters}}" mergeKey="clickOnStuff"/>
             <fillField userInput="Color" selector="{{AdminCreateProductConfigurationsPanel.attributeCode}}" mergeKey="fillFilterField"/>
