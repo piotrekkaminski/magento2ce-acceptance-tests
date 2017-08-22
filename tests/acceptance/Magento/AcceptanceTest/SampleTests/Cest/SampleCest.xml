@@ -189,5 +189,19 @@
             <scrollToTopOfPage mergeKey="scrollToTopOfPage"/>
             <parseFloat userInput="300,000.2325" mergeKey="parseFloat1"/>
         </test>
+        <test name="AllVariableMethodsTest">
+            <annotations>
+                <title value="Create all Methods that support Variables."/>
+                <description value="Exercises the Generator to make sure it creates every Method that supports a Variable."/>
+                <severity value="CRITICAL"/>
+                <testCaseId value="#"/>
+            </annotations>
+            <amOnPage variable="uriPath1" mergeKey="amOnPage1"/>
+            <amOnSubdomain variable="uriPath2" mergeKey="amOnSubdomain1"/>
+            <amOnUrl variable="urlPath1" mergeKey="amOnUrl1"/>
+            <appendField variable="randomText" selector="#randomField" mergeKey="appendField1"/>
+            <attachFile variable="filePath" selector="#filePathField" mergeKey="attachFile1"/>
+
+        </test>
     </cest>
 </config>
