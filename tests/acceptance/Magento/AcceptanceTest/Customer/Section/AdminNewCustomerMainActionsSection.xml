@@ -1,5 +1,5 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/SectionObject.xsd">
     <section name="AdminNewCustomerMainActionsSection">
-        <element name="saveButton" type="button" locator="#save" timeOut="10"/>
+        <element name="saveButton" type="button" locator="#save" timeout="100"/>
     </section>
 </config>
