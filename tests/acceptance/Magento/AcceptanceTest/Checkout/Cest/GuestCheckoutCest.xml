@@ -3,20 +3,18 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
     <cest name="GuestCheckoutCest">
         <annotations>
-            <severity value="CRITICAL"/>
-            <testCaseId value="#"/>
             <group value="checkout"/>
             <env value="chrome"/>
             <env value="firefox"/>
             <env value="phantomjs"/>
         </annotations>
         <before>
-            <createData entity="_defaultCategory" mergeKey="createCategory"/>
+            <!--<createData entity="_defaultCategory" mergeKey="createCategory"/>-->
             <!-- todo look at swagger, create the JSON metadata, and associated stuff -->
             <!--<createData entity="ProductOne" mergeKey="createProduct"/>-->
         </before>
         <after>
-            <deleteData createDataKey="createCategory" mergeKey="deleteCategory"/>
+            <!--<deleteData createDataKey="createCategory" mergeKey="deleteCategory"/>-->
             <!--<deleteData createDataKey="createProduct" mergeKey="deleteProduct"/>-->
         </after>
         <test name="GuestCheckoutTest">
@@ -25,12 +23,15 @@
                 <description value="Should be able to place an order as a guest."/>
             </annotations>
             <amOnPage url="/{{_defaultCategory.name_lwr}}.html" mergeKey="onCategoryPage"/>
-            <moveMouseOver selector="{{_defaultProduct.name}}" mergeKey="hoverProduct"/>
+            <moveMouseOver selector="{{StorefrontCategoryMainSection.ProductItemInfo}}" mergeKey="hoverProduct"/>
             <click selector="{{StorefrontCategoryMainSection.AddToCartBtn}}" mergeKey="addToCart"/>
+            <waitForElementVisible selector="{{StorefrontCategoryMainSection.SuccessMsg}}" time="10" mergeKey="waitForSuccess"/>
             <see selector="{{StorefrontCategoryMainSection.SuccessMsg}}" userInput="You added {{_defaultProduct.name}} to your shopping cart." mergeKey="seeAddedToCartMessage"/>
             <see selector="{{StorefrontMiniCartSection.quantity}}" userInput="1" mergeKey="seeCartQuantity"/>
             <click selector="{{StorefrontMiniCartSection.show}}" mergeKey="clickCart"/>
             <click selector="{{StorefrontMiniCartSection.goToCheckout}}" mergeKey="goToCheckout"/>
+            <!-- wait -->
+            <waitForPageLoad mergeKey="waitForCheckoutLoad"/>
             <fillField selector="{{GuestCheckoutShippingSection.email}}" userInput="{{CustomerEntityOne.email}}" mergeKey="enterEmail"/>
             <fillField selector="{{GuestCheckoutShippingSection.firstName}}" userInput="{{CustomerEntityOne.firstname}}" mergeKey="enterFirstName"/>
             <fillField selector="{{GuestCheckoutShippingSection.lastName}}" userInput="{{CustomerEntityOne.lastname}}" mergeKey="enterLastName"/>

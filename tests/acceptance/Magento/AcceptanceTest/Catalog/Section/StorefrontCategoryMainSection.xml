@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/SectionObject.xsd">
     <section name="StorefrontCategoryMainSection">
         <element name="CategoryTitle" type="text" locator="#page-title-heading span"/>
+        <element name="ProductItemInfo" type="button" locator=".product-item-info"/>
         <element name="AddToCartBtn" type="button" locator="button.action.tocart.primary"/>
         <element name="SuccessMsg" type="button" locator="div.message-success"/>
     </section>
