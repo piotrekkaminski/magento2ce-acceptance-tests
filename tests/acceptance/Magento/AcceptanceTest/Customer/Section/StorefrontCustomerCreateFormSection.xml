@@ -7,6 +7,6 @@
         <element name="emailField" type="input" locator="#email_address"/>
         <element name="passwordField" type="input" locator="#password"/>
         <element name="confirmPasswordField" type="input" locator="#password-confirmation"/>
-        <element name="createAccountButton" type="button" locator="button.action.submit.primary" timeOut="10"/>
+        <element name="createAccountButton" type="button" locator="button.action.submit.primary" timeout="10"/>
     </section>
 </config>
