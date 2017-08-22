@@ -1,7 +1,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Page/etc/SectionObject.xsd">
     <section name="AdminCustomerFiltersSection">
         <element name="filtersButton" type="button" locator="#container > div > div.admin__data-grid-header > div:nth-child(1) > div.data-grid-filters-actions-wrap > div > button"/>
-        <element name="nameInput" type="input" locator="input[name='name]"/>
+        <element name="nameInput" type="input" locator="input[name=name]"/>
         <element name="apply" type="button" locator="button[data-action=grid-filter-apply]"/>
     </section>
 </config>

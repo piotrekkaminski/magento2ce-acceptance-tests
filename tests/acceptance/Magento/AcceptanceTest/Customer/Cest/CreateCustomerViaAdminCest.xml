@@ -31,7 +31,7 @@
             <waitForElementNotVisible selector="div [data-role='spinner']" time="10" mergeKey="waitForSpinner1"/>
             <seeElement mergeKey="assertSuccessMessage" selector="{{AdminCustomerMessagesSection.successMessage}}"/>
             <click mergeKey="openFilter" selector="{{AdminCustomerFiltersSection.filtersButton}}"/>
-            <fillField userInput="{{CustomerEntityOne.firstname}}" mergeKey="filterFirstName"/>
+            <fillField userInput="{{CustomerEntityOne.firstname}}" selector="{{AdminCustomerFiltersSection.nameInput}}" mergeKey="filterFirstName"/>
             <click mergeKey="applyFilter" selector="{{AdminCustomerFiltersSection.apply}}"/>
             <waitForElementNotVisible selector="div [data-role='spinner']" time="10" mergeKey="waitForSpinner2"/>
             <see userInput="{{CustomerEntityOne.firstname}}" selector="{{AdminCustomerGridSection.customerGrid}}" mergeKey="assertFirstName"/>
