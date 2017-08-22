@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/EntityMetadata.xsd">
-    <metadata name="createCategory" dataType="category" operation="create" auth="/rest/V1/integration/admin/token" url="/rest/V1/categories" method="POST">
+        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/dataOperation.xsd">
+    <operation name="createCategory" dataType="category" type="create" auth="/rest/V1/integration/admin/token" url="/rest/V1/categories" method="POST">
         <header param="Content-Type">application/json</header>
         <entry key="id">integer</entry>
         <entry key="parentId">integer</entry>
@@ -15,10 +15,10 @@
         <entry key="updatedAt">string</entry>
         <entry key="path">string</entry>
         <entry key="includeInMenu">boolean</entry>
-    </metadata>
+    </operation>
 
-    <metadata name="deleteCategory" dataType="category" operation="delete" auth="/rest/V1/integration/admin/token" url="/rest/V1/categories" method="DELETE">
+    <operation name="deleteCategory" dataType="category" type="delete" auth="/rest/V1/integration/admin/token" url="/rest/V1/categories" method="DELETE">
         <header param="Content-Type">application/json</header>
         <param key="id" type="path">{categoryId}</param>
-    </metadata>
+    </operation>
 </config>

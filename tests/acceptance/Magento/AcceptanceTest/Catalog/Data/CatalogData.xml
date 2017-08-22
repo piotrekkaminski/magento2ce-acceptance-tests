@@ -4,7 +4,6 @@
         xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/DataProfileSchema.xsd">
     <entity name="AdminCreateSimpleProductCestCategory" type="category">
         <data key="name">AdminCreateSimpleProductCestCategory</data>
-        <data key="is_active">true</data>
     </entity>
     <entity name="AdminCreateSimpleProductCestProduct" type="product">
         <data key="sku">AdminCreateSimpleProductSku</data>
@@ -13,5 +12,8 @@
         <data key="urlKey">admincreatesimpleproducturlkey</data>
         <data key="quantity">100</data>
         <data key="catUrlKey">admincreatesimpleproductcestcategory</data>
+    </entity>
+    <entity name="myProduct" type="product">
+        <data key="name">funstuff</data>
     </entity>
 </config>

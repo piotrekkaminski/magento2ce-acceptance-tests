@@ -19,4 +19,10 @@
         <header param="Content-Type">application/json</header>
         <param key="id" type="path">{sku}</param>
     </operation>
+
+    <operation name="customAttribute" dataType="customAttribute" type="create">
+        <entry key="attribute_code">string</entry>
+        <entry key="value">string</entry>
+    </operation>
+
 </config>
