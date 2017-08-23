@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../../../DataGenerator/etc/DataProfileSchema.xsd">
+        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/DataGenerator/etc/dataProfileSchema.xsd">
     <entity name="salesRecordOne" type="sales">
         <data key="salesId">data</data>
     </entity>

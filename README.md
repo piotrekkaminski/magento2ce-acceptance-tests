@@ -13,6 +13,7 @@
 * GitHub Repos:
   * [CE Tests](https://github.com/magento-pangolin/magento2ce-acceptance-tests)
   * [EE Tests](https://github.com/magento-pangolin/magento2ee-acceptance-tests)
+* Configure Magento for [Automated Testing](http://devdocs.magento.com/guides/v2.0/mtf/mtf_quickstart/mtf_quickstart_magento.html)
 
 ### Recommendations
 We recommend using [PHPStorm 2017](https://www.jetbrains.com/phpstorm/) for your IDE. They recently added support for [Codeception Test execution](https://blog.jetbrains.com/phpstorm/2017/03/codeception-support-comes-to-phpstorm-2017-1/) which is helpful when debugging.

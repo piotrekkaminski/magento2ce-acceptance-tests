@@ -19,7 +19,7 @@
         "consolidation/robo": "^1.0.0",
         "henrikbjorn/lurker": "^1.2",
         "vlucas/phpdotenv": "~2.4",
-        "magento/magento2-acceptance-test-framework": "dev-develop"
+        "magento/magento2-acceptance-test-framework": "dev-sprint-develop"
     },
     "autoload": {
         "psr-0": {
