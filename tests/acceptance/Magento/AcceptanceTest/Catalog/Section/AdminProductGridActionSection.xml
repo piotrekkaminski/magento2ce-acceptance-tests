@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
     <section name="AdminProductGridActionSection">
         <element name="addProductToggle" type="button" locator=".action-toggle.primary.add"/>
-        <element name="addSimpleProduct" type="button" locator=".item[data-ui-id='products-list-add-new-product-button-item-simple']" timeOut="30"/>
-        <element name="addConfigurableProduct" type="button" locator=".item[data-ui-id='products-list-add-new-product-button-item-configurable']" timeOut="30"/>
+        <element name="addSimpleProduct" type="button" locator=".item[data-ui-id='products-list-add-new-product-button-item-simple']" timeout="30"/>
+        <element name="addConfigurableProduct" type="button" locator=".item[data-ui-id='products-list-add-new-product-button-item-configurable']" timeout="30"/>
     </section>
 </config>

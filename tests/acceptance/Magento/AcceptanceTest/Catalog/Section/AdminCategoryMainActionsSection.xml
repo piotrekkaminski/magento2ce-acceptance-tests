@@ -2,6 +2,6 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
     <section name="AdminCategoryMainActionsSection">
-        <element name="SaveButton" type="button" locator=".page-actions-inner #save" timeOut="30"/>
+        <element name="SaveButton" type="button" locator=".page-actions-inner #save" timeout="30"/>
     </section>
 </config>

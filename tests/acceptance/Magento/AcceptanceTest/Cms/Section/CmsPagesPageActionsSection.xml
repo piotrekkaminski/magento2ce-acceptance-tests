@@ -2,6 +2,6 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
     <section name="CmsPagesPageActionsSection">
-        <element name="addNewPage" type="button" locator="#add" timeOut="30"/>
+        <element name="addNewPage" type="button" locator="#add" timeout="30"/>
     </section>
 </config>
