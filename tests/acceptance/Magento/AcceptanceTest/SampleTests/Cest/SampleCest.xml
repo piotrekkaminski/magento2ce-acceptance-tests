@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Test XML Example -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
+        xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/Test/etc/testSchema.xsd">
     <cest name="SampleGeneratorCest">
         <annotations>
             <features value="Test Generator with Codeception commands"/>
@@ -74,12 +74,11 @@
             <executeJS function="return $('#myField').val()" mergeKey="executeJS"/>
             <fillField selector="#field" userInput="stuff" mergeKey="fillField1"/>
             <fillField selectorArray="['name' => 'email']" userInput="stuff" mergeKey="fillField2"/>
-            <grabAttributeFrom selector="#target" userInput="title" mergeKey="grabAttributeFrom"/>
+            <grabAttributeFrom returnVariable="title" selector="#target" userInput="title" mergeKey="grabAttributeFrom"/>
             <grabCookie returnVariable="cookie" userInput="cookie" parameterArray="['domain' => 'www.google.com']" mergeKey="grabCookie"/>
             <grabFromCurrentUrl returnVariable="uri" url="~$/user/(\d+)/~" mergeKey="grabFromCurrentUrl"/>
             <grabMultiple returnVariable="multiple" selector="a" userInput="href" mergeKey="grabMultiple"/>
-            <grabPageSource mergeKey="grabPageSource1"/>
-            <grabPageSource returnVariable="pageSource" mergeKey="grabPageSource2"/>
+            <grabPageSource returnVariable="pageSource" mergeKey="grabPageSource1"/>
             <grabTextFrom returnVariable="text" selector="h1" mergeKey="grabTextFrom1"/>
             <grabValueFrom returnVariable="value1" selector=".form" mergeKey="grabValueFrom1"/>
             <grabValueFrom returnVariable="value2" selectorArray="['name' => 'username']" mergeKey="grabValueFrom2"/>
@@ -157,7 +156,7 @@
             <unselectOption selector="#dropDown" userInput="Option" mergeKey="unselectOption"/>
             <wait time="15" mergeKey="wait"/>
             <waitForElement selector="#button" time="10" mergeKey="waitForElement"/>
-            <waitForElementChange selector="#menu" function="function(WebDriverElement $el) {return $el->isDisplayed();}" time="100" mergeKey="waitForElementChange"/>
+            <waitForElementChange selector="#menu" function="function(\WebDriverElement $el) {return $el->isDisplayed();}" time="100" mergeKey="waitForElementChange"/>
             <waitForElementNotVisible selector="#a_thing .className" time="30" mergeKey="waitForElementNotVisible"/>
             <waitForElementVisible selector="#a_thing .className" time="15" mergeKey="waitForElementVisible"/>
             <waitForJS function="return $.active == 0;" time="30" mergeKey="waitForJS"/>
@@ -196,12 +195,51 @@
                 <severity value="CRITICAL"/>
                 <testCaseId value="#"/>
             </annotations>
-            <amOnPage variable="uriPath1" mergeKey="amOnPage1"/>
-            <amOnSubdomain variable="uriPath2" mergeKey="amOnSubdomain1"/>
-            <amOnUrl variable="urlPath1" mergeKey="amOnUrl1"/>
-            <appendField variable="randomText" selector="#randomField" mergeKey="appendField1"/>
-            <attachFile variable="filePath" selector="#filePathField" mergeKey="attachFile1"/>
-
+            <grabFromCurrentUrl returnVariable="randomStuff" mergeKey="grabFromCurrentUrl1"/>
+            <amOnPage variable="randomStuff" mergeKey="amOnPage1"/>
+            <amOnSubdomain variable="randomStuff" mergeKey="amOnSubdomain1"/>
+            <amOnUrl variable="randomStuff" mergeKey="amOnUrl1"/>
+            <appendField variable="randomStuff" selector="#randomField" mergeKey="appendField1"/>
+            <attachFile variable="randomStuff" selector="#filePathField" mergeKey="attachFile1"/>
+            <click variable="randomStuff" mergeKey="click1"/>
+            <dontSee variable="randomStuff" mergeKey="dontSee1"/>
+            <dontSeeCookie variable="randomStuff" mergeKey="dontSeeCookie1"/>
+            <dontSeeCurrentUrlEquals variable="randomStuff" mergeKey="dontSeeCurrentUrlEquals1"/>
+            <dontSeeCurrentUrlMatches variable="randomStuff" mergeKey="dontSeeCurrentUrlMatches1"/>
+            <dontSeeInCurrentUrl variable="randomStuff" mergeKey="dontSeeInCurrentUrl1"/>
+            <dontSeeInField selector="#stuff" variable="randomStuff" mergeKey="dontSeeInField1"/>
+            <dontSeeInPageSource variable="randomStuff" mergeKey="dontSeeInPageSource1"/>
+            <dontSeeInTitle variable="randomStuff" mergeKey="dontSeeInTitle1"/>
+            <dontSeeLink variable="randomStuff" mergeKey="dontSeeLink1"/>
+            <dontSeeOptionIsSelected selector="#dropdown" variable="randomStuff" mergeKey="dontSeeOptionIsSelected1"/>
+            <fillField variable="randomStuff" selector="#field" mergeKey="fillField1"/>
+            <grabAttributeFrom selector="#stuff" returnVariable="moreRandomStuff" variable="randomStuff" mergeKey="grabAttributeFrom1"/>
+            <grabCookie returnVariable="cookies" variable="randomStuff" mergeKey="grabValueFrom1"/>
+            <grabFromCurrentUrl returnVariable="url" variable="randomStuff" mergeKey="grabFromCurrentUrl"/>
+            <grabMultiple returnVariable="multipleThings" selector="a" variable="randomStuff" mergeKey="grabMultipl1"/>
+            <loadSessionSnapshot variable="randomStuff" mergeKey="loadSessionSnapshot"/>
+            <pressKey selector="a" variable="randomStuff" mergeKey="presKey1"/>
+            <saveSessionSnapshot variable="randomStuff" mergeKey="saveSessionSnapshot1"/>
+            <see variable="randomStuff" mergeKey="see1"/>
+            <seeCookie variable="randomStuff" mergeKey="seeCookie1"/>
+            <seeCurrentUrlEquals variable="randomStuff" mergeKey="seeCurrentUrlEquals1"/>
+            <seeCurrentUrlMatches variable="randomStuff" mergeKey="seeCurrentUrlMatches1"/>
+            <seeInCurrentUrl variable="randomStuff" mergeKey="seeInCurrentUrl1"/>
+            <seeInField selector="a" variable="randomStuff" mergeKey="seeInField1"/>
+            <seeInPopup variable="randomStuff" mergeKey="seeInPopup"/>
+            <seeInTitle variable="randomStuff" mergeKey="seeInTitle1"/>
+            <seeLink variable="randomStuff" mergeKey="seeLink1"/>
+            <seeNumberOfElements selector="#stuff" variable="randomStuff" mergeKey="seeNumberOfElements1"/>
+            <seeOptionIsSelected selector="#stuff" variable="randomStuff" mergeKey="seeOptionIsSelected1"/>
+            <selectOption selector="#stuff" variable="randomStuff" mergeKey="selectOption1"/>
+            <switchToIFrame variable="randomStuff" mergeKey="switchToIFrame1"/>
+            <switchToNextTab variable="randomStuff" mergeKey="switchToNextTab1"/>
+            <switchToPreviousTab variable="randomStuff" mergeKey="switchToPreviousTab1"/>
+            <switchToNextTab variable="randomStuff" mergeKey="switchToNextTab1"/>
+            <switchToWindow variable="randomStuff" mergeKey="switchToWindow1"/>
+            <typeInPopup variable="randomStuff" mergeKey="typeInPopup"/>
+            <unselectOption selector="#option" variable="randomStuff" mergeKey="unselectOption1"/>
+            <waitForText variable="randomStuff" time="5" mergeKey="waitForText1"/>
         </test>
     </cest>
 </config>
