@@ -17,10 +17,11 @@
                 <severity value="CRITICAL"/>
             </annotations>
             <amOnPage url="{{AdminLoginPage}}" mergeKey="navigateToAdmin"/>
-            <fillField selector="{{AdminLoginFormSection.username}}" userInput="admin" mergeKey="fillUsername"/>
-            <fillField selector="{{AdminLoginFormSection.password}}" userInput="admin123" mergeKey="fillPassword"/>
+            <fillField selector="{{AdminLoginFormSection.username}}" userInput="{{_ENV.MAGENTO_ADMIN_USERNAME}}" mergeKey="fillUsername"/>
+            <fillField selector="{{AdminLoginFormSection.password}}" userInput="{{_ENV.MAGENTO_ADMIN_PASSWORD}}" mergeKey="fillPassword"/>
             <click selector="{{AdminLoginFormSection.signIn}}" mergeKey="clickLogin"/>
             <amOnPage url="{{AdminCategoryPage}}" mergeKey="navigateToCategoryPage"/>
+            <waitForPageLoad mergeKey="waitForPageLoad1"/>
             <click selector="{{AdminCategorySidebarActionSection.AddSubcategoryButton}}" mergeKey="addSubcategory"/>
             <fillField selector="{{AdminCategoryBasicFieldSection.CategoryNameInput}}" userInput="testCategory" mergeKey="fillCategoryName"/>
             <click selector="{{AdminCategorySEOSection.SectionHeader}}" mergeKey="openSEO"/>

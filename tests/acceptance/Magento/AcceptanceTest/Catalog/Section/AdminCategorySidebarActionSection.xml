@@ -2,7 +2,7 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../magento2-acceptance-test-framework/src/Magento/AcceptanceTestFramework/PageObject/etc/SectionObject.xsd">
     <section name="AdminCategorySidebarActionSection">
-        <element name="AddRootCategoryButton" type="button" locator="#add_root_category_button"/>
-        <element name="AddSubcategoryButton" type="button" locator="#add_subcategory_button"/>
+        <element name="AddRootCategoryButton" type="button" locator="#add_root_category_button" timeout="30"/>
+        <element name="AddSubcategoryButton" type="button" locator="#add_subcategory_button" timeout="30"/>
     </section>
 </config>
