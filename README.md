@@ -132,7 +132,7 @@ You can run the Codeception tests directly without using Robo if you'd like. To 
 You can run the following commands in the Terminal to generate and open an Allure report.
 
 * Build the Report: `allure generate tests/_output/allure-results/ -o tests/_output/allure-report/`
-* Open the Report: `allure report open --report-dir tests/_output/allure-report/`
+* Open the Report: `allure open tests/_output/allure-report/`
 
 ### Using Robo
 You can run the following Robo commands in the Terminal to generate and open an Allure report.
